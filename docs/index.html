@@ -14,7 +14,7 @@
     .container { max-width: 1200px; margin: 0 auto; padding: 1.5rem; }
     .chart-card { background: #fff; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); padding: 1.5rem; margin-bottom: 1.5rem; }
     .chart-card h2 { font-size: 1.1rem; margin-bottom: 1rem; color: #1a1a2e; }
-    #sales-chart, #estimates-chart, #tax-chart { width: 100%; height: 450px; }
+    #sales-chart, #estimates-chart, #tax-chart, #tax-trend-chart, #appreciation-chart, #days-since-sale-chart, #volume-chart, #median-price-chart, #ppsf-chart { width: 100%; height: 450px; }
     .stats { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
     .stat { background: #fff; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); padding: 1rem 1.5rem; flex: 1; min-width: 150px; }
     .stat .label { font-size: 0.75rem; color: #888; text-transform: uppercase; letter-spacing: 0.05em; }
@@ -44,6 +44,8 @@
     .filter-tag { display: inline-flex; align-items: center; gap: 0.3rem; background: #e0e7ff; color: #3730a3; border-radius: 4px; padding: 0.2rem 0.5rem; font-size: 0.8rem; font-weight: 500; }
     .filter-tag .remove { cursor: pointer; font-size: 0.9rem; line-height: 1; opacity: 0.6; }
     .filter-tag .remove:hover { opacity: 1; }
+    .section-title { font-size: 1.2rem; font-weight: 700; color: #1a1a2e; margin: 2rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #e2e8f0; }
+    .section-title:first-of-type { margin-top: 0.5rem; }
   </style>
 </head>
 <body>
@@ -60,9 +62,22 @@
       <button id="clear-filter">Clear</button>
       <span class="hint">Comma-separated units or ranges. Press Enter to apply.</span>
     </div>
+    <h3 class="section-title">Unit Sales Information</h3>
+    <div class="chart-card">
+      <h2>Median Sale Price by Year</h2>
+      <div id="median-price-chart"></div>
+    </div>
     <div class="chart-card">
       <h2>Sales History (1978–Present)</h2>
       <div id="sales-chart"></div>
+    </div>
+    <div class="chart-card">
+      <h2>Price per Square Foot</h2>
+      <div id="ppsf-chart"></div>
+    </div>
+    <div class="chart-card">
+      <h2>Sales Volume by Year</h2>
+      <div id="volume-chart"></div>
     </div>
     <div class="chart-card">
       <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;margin-bottom:1rem">
@@ -89,9 +104,23 @@
       </details>
     </div>
     <div class="chart-card">
+      <h2>Annual Appreciation Rate by Unit</h2>
+      <div id="appreciation-chart"></div>
+    </div>
+    <div class="chart-card">
+      <h2>Days Since Last Sale</h2>
+      <div id="days-since-sale-chart"></div>
+    </div>
+
+    <h3 class="section-title">Tax History Information</h3>
+    <div class="chart-card">
       <h2>Property Taxes by Unit <span id="tax-date" style="font-size:0.75rem;font-weight:400;color:#888"></span></h2>
       <div id="tax-chart"></div>
       <p style="font-size:0.75rem;color:#888;margin-top:0.5rem">Units 115 and 137 had no tax data on Redfin.</p>
+    </div>
+    <div class="chart-card">
+      <h2>Tax Burden Trend — Year-over-Year Change</h2>
+      <div id="tax-trend-chart"></div>
     </div>
   </div>
   <script>
@@ -195,7 +224,13 @@
       renderStats(_data);
       renderSalesChart(_data);
       renderEstimatesChart(_data);
+      renderPricePerSqftChart(_data);
       renderTaxChart(_data);
+      renderSalesVolumeChart(_data);
+      renderMedianPriceChart(_data);
+      renderTaxTrendChart(_data);
+      renderAppreciationChart(_data);
+      renderDaysSinceSaleChart(_data);
     }
 
     function filterSales(sales) {
@@ -215,8 +250,6 @@
       const rEstimates = props.filter(p => p.redfin).map(p => p.redfin);
       const avgZ = zEstimates.length ? zEstimates.reduce((a, b) => a + b, 0) / zEstimates.length : 0;
       const avgR = rEstimates.length ? rEstimates.reduce((a, b) => a + b, 0) / rEstimates.length : 0;
-      const hoaSales = sales.filter(s => s.source === 'hoa');
-      const redfinSales = sales.filter(s => s.source === 'redfin');
       const latestSale = sales.length ? sales[sales.length - 1] : null;
       const filterNote = _selectedUnits ? ` <span style="font-size:0.7rem;font-weight:400;color:#888">(filtered)</span>` : '';
 
@@ -224,7 +257,7 @@
         <div class="stat"><div class="label">Units${_selectedUnits ? ' Shown' : ' Tracked'}</div><div class="value">${props.length}${filterNote}</div></div>
         <div class="stat"><div class="label">Avg Zillow Estimate</div><div class="value">${zEstimates.length ? fmt(Math.round(avgZ)) : 'N/A'}</div></div>
         <div class="stat"><div class="label">Avg Redfin Estimate</div><div class="value">${rEstimates.length ? fmt(Math.round(avgR)) : 'N/A'}</div></div>
-        <div class="stat"><div class="label">Total Sales</div><div class="value">${sales.length} <span style="font-size:0.7rem;font-weight:400;color:#888">(${hoaSales.length} HOA + ${redfinSales.length} Redfin)</span></div></div>
+        <div class="stat"><div class="label">Total Sales</div><div class="value">${sales.length}</div></div>
         <div class="stat"><div class="label">Last Sale</div><div class="value">${latestSale ? latestSale.date : 'N/A'}</div></div>
       `;
 
@@ -242,45 +275,35 @@
 
       // One line trace per unit (connecting its sales chronologically)
       const unitNums = Object.keys(byUnit).map(Number).sort((a, b) => a - b);
+      const unitColor = (unit) => {
+        const hue = ((unit - 111) * 137) % 360; // golden-angle spread for max separation
+        return `hsla(${hue}, 55%, 55%, 0.1)`;
+      };
       const lineTraces = unitNums.map(unit => {
         const us = byUnit[unit];
         return {
           x: us.map(s => s.date),
           y: us.map(s => s.price),
           mode: 'lines',
-          line: { color: '#cbd5e1', width: 1 },
+          line: { color: unitColor(unit), width: 1.5 },
           showlegend: false,
           hoverinfo: 'skip',
         };
       });
 
-      // Marker traces by source (drawn on top of lines)
-      const hoaSales = sales.filter(s => s.source === 'hoa');
-      const redfinSales = sales.filter(s => s.source === 'redfin');
-
-      const hoaTrace = {
-        x: hoaSales.map(s => s.date),
-        y: hoaSales.map(s => s.price),
-        text: hoaSales.map(s => `Unit ${s.unit}<br>${s.date}<br>${fmt(s.price)}<br>Source: HOA`),
+      // Marker trace for all sales
+      const salesTrace = {
+        x: sales.map(s => s.date),
+        y: sales.map(s => s.price),
+        text: sales.map(s => `Unit ${s.unit}<br>${s.date}<br>${fmt(s.price)}`),
         mode: 'markers',
         type: 'scatter',
         marker: { color: '#3b82f6', size: 7, opacity: 0.85 },
         hoverinfo: 'text',
-        name: 'HOA Records',
+        name: 'Sales',
       };
 
-      const redfinTrace = {
-        x: redfinSales.map(s => s.date),
-        y: redfinSales.map(s => s.price),
-        text: redfinSales.map(s => `Unit ${s.unit}<br>${s.date}<br>${fmt(s.price)}<br>Source: Redfin`),
-        mode: 'markers',
-        type: 'scatter',
-        marker: { color: '#f59e0b', size: 6, opacity: 0.7, symbol: 'diamond' },
-        hoverinfo: 'text',
-        name: 'Redfin Public Records',
-      };
-
-      const traces = [...lineTraces, hoaTrace, redfinTrace];
+      const traces = [...lineTraces, salesTrace];
 
       // Trend line (only if we have at least 2 sales)
       if (sales.length >= 2) {
@@ -406,6 +429,105 @@
       }, { responsive: true });
     }
 
+    function renderPricePerSqftChart(data) {
+      const sales = filterSales(data.sales);
+      const props = data.properties;
+
+      // Build sqft lookup from properties
+      const sqftMap = {};
+      props.forEach(p => { if (p.sqft) sqftMap[p.unit] = p.sqft; });
+
+      // Calculate price per sqft for each sale
+      const ppsfData = [];
+      sales.forEach(s => {
+        const sqft = sqftMap[s.unit];
+        if (!sqft) return;
+        ppsfData.push({
+          date: s.date,
+          unit: s.unit,
+          price: s.price,
+          sqft: sqft,
+          ppsf: Math.round(s.price / sqft),
+          source: s.source,
+        });
+      });
+
+      if (ppsfData.length === 0) {
+        Plotly.purge('ppsf-chart');
+        return;
+      }
+
+      // Group by unit for connecting lines
+      const byUnit = {};
+      ppsfData.forEach(d => { (byUnit[d.unit] = byUnit[d.unit] || []).push(d); });
+      Object.values(byUnit).forEach(arr => arr.sort((a, b) => a.date.localeCompare(b.date)));
+
+      const unitNums = Object.keys(byUnit).map(Number).sort((a, b) => a - b);
+      const unitColor = (unit) => {
+        const hue = ((unit - 111) * 137) % 360;
+        return `hsla(${hue}, 55%, 55%, 0.1)`;
+      };
+
+      const lineTraces = unitNums.map(unit => {
+        const us = byUnit[unit];
+        return {
+          x: us.map(d => d.date),
+          y: us.map(d => d.ppsf),
+          mode: 'lines',
+          line: { color: unitColor(unit), width: 1.5 },
+          showlegend: false,
+          hoverinfo: 'skip',
+        };
+      });
+
+      const ppsfTrace = {
+        x: ppsfData.map(d => d.date),
+        y: ppsfData.map(d => d.ppsf),
+        text: ppsfData.map(d => `Unit ${d.unit}<br>${d.date}<br>${fmt(d.price)} / ${d.sqft.toLocaleString()} sq ft<br>$${d.ppsf}/sq ft`),
+        mode: 'markers',
+        type: 'scatter',
+        marker: { color: '#3b82f6', size: 7, opacity: 0.85 },
+        hoverinfo: 'text',
+        name: 'Sales',
+      };
+
+      const traces = [...lineTraces, ppsfTrace];
+
+      // Trend line
+      if (ppsfData.length >= 2) {
+        const sorted = ppsfData.slice().sort((a, b) => a.date.localeCompare(b.date));
+        const allDates = sorted.map(d => new Date(d.date).getTime());
+        const allPpsf = sorted.map(d => d.ppsf);
+        const n = allDates.length;
+        const sumX = allDates.reduce((a, b) => a + b, 0);
+        const sumY = allPpsf.reduce((a, b) => a + b, 0);
+        const sumXY = allDates.reduce((a, x, i) => a + x * allPpsf[i], 0);
+        const sumX2 = allDates.reduce((a, x) => a + x * x, 0);
+        const denom = n * sumX2 - sumX * sumX;
+        if (denom !== 0) {
+          const slope = (n * sumXY - sumX * sumY) / denom;
+          const intercept = (sumY - slope * sumX) / n;
+          const trendX = [sorted[0].date, sorted[sorted.length - 1].date];
+          const trendY = trendX.map(d => slope * new Date(d).getTime() + intercept);
+          traces.push({
+            x: trendX, y: trendY,
+            mode: 'lines',
+            line: { color: '#ef4444', width: 2, dash: 'dash' },
+            name: 'Trend',
+            hoverinfo: 'skip',
+          });
+        }
+      }
+
+      Plotly.newPlot('ppsf-chart', traces, {
+        xaxis: { title: 'Date' },
+        yaxis: { title: 'Price per Sq Ft', tickprefix: '$', tickformat: ',.0f' },
+        margin: { t: 20, r: 30 },
+        legend: { x: 0, y: 1 },
+        hovermode: 'closest',
+      }, { responsive: true });
+    }
+
     function renderTaxChart(data) {
       const taxes = data.taxes || {};
       // Get all years across all units, sorted
@@ -523,6 +645,328 @@
         yaxis: { title: 'Annual Property Tax', tickprefix: '$', tickformat: ',.0f' },
         margin: { t: 20, r: 30 },
         legend: { x: 0, y: 1 },
+        hovermode: 'closest',
+      }, { responsive: true });
+    }
+
+    function renderSalesVolumeChart(data) {
+      const sales = filterSales(data.sales);
+      const byYear = {};
+      sales.forEach(s => {
+        const year = s.date.slice(0, 4);
+        byYear[year] = (byYear[year] || 0) + 1;
+      });
+      const years = Object.keys(byYear).sort();
+      if (years.length === 0) return;
+
+      const trace = {
+        x: years,
+        y: years.map(y => byYear[y]),
+        type: 'bar',
+        name: 'Sales',
+        marker: { color: '#3b82f6' },
+        text: years.map(y => `${y}<br>${byYear[y]} sale${byYear[y] !== 1 ? 's' : ''}`),
+        hoverinfo: 'text',
+      };
+
+      Plotly.newPlot('volume-chart', [trace], {
+        xaxis: { title: 'Year', type: 'category' },
+        yaxis: { title: 'Number of Sales' },
+        margin: { t: 20, r: 30 },
+        hovermode: 'closest',
+      }, { responsive: true });
+    }
+
+    function renderMedianPriceChart(data) {
+      const sales = filterSales(data.sales);
+      const byYear = {};
+      sales.forEach(s => {
+        const year = s.date.slice(0, 4);
+        (byYear[year] = byYear[year] || []).push(s.price);
+      });
+      const years = Object.keys(byYear).sort();
+      if (years.length === 0) return;
+
+      function percentile(arr, p) {
+        const sorted = arr.slice().sort((a, b) => a - b);
+        const idx = (p / 100) * (sorted.length - 1);
+        const lo = Math.floor(idx), hi = Math.ceil(idx);
+        if (lo === hi) return sorted[lo];
+        return sorted[lo] + (sorted[hi] - sorted[lo]) * (idx - lo);
+      }
+
+      const stats = years.map(y => ({
+        year: y,
+        median: percentile(byYear[y], 50),
+        p25: percentile(byYear[y], 25),
+        p75: percentile(byYear[y], 75),
+        count: byYear[y].length,
+      }));
+
+      const traces = [];
+
+      // Shaded band: 25th to 75th percentile
+      traces.push({
+        x: stats.map(s => s.year),
+        y: stats.map(s => s.p75),
+        mode: 'lines',
+        line: { width: 0 },
+        showlegend: false,
+        hoverinfo: 'skip',
+      });
+      traces.push({
+        x: stats.map(s => s.year),
+        y: stats.map(s => s.p25),
+        mode: 'lines',
+        line: { width: 0 },
+        fill: 'tonexty',
+        fillcolor: 'rgba(16,185,129,0.15)',
+        name: '25th\u201375th Percentile',
+        hoverinfo: 'skip',
+      });
+
+      // Median line
+      traces.push({
+        x: stats.map(s => s.year),
+        y: stats.map(s => s.median),
+        mode: 'lines+markers',
+        line: { color: '#10b981', width: 2.5 },
+        marker: { size: 8 },
+        name: 'Median Price',
+        text: stats.map(s =>
+          `${s.year}<br>Median: ${fmt(Math.round(s.median))}<br>25th: ${fmt(Math.round(s.p25))}<br>75th: ${fmt(Math.round(s.p75))}<br>${s.count} sale${s.count !== 1 ? 's' : ''}`
+        ),
+        hoverinfo: 'text',
+      });
+
+      Plotly.newPlot('median-price-chart', traces, {
+        xaxis: { title: 'Year', type: 'category' },
+        yaxis: { title: 'Sale Price', tickprefix: '$', tickformat: ',.0f' },
+        margin: { t: 20, r: 30 },
+        legend: { x: 0, y: 1 },
+        hovermode: 'closest',
+      }, { responsive: true });
+    }
+
+    function renderTaxTrendChart(data) {
+      const taxes = data.taxes || {};
+      const unitNums = Object.keys(taxes).map(Number).sort((a, b) => a - b);
+      const filteredUnits = _selectedUnits
+        ? unitNums.filter(u => _selectedUnits.has(u))
+        : unitNums;
+
+      if (filteredUnits.length === 0) return;
+
+      const allYears = new Set();
+      filteredUnits.forEach(u => (taxes[u.toString()] || []).forEach(r => allYears.add(r.year)));
+      const years = [...allYears].sort((a, b) => a - b);
+      if (years.length < 2) return;
+
+      const avgByYear = years.map(yr => {
+        const vals = filteredUnits
+          .map(u => (taxes[u.toString()] || []).find(r => r.year === yr))
+          .filter(r => r)
+          .map(r => r.tax);
+        return vals.length > 0 ? vals.reduce((a, b) => a + b, 0) / vals.length : null;
+      });
+
+      const yoyYears = [];
+      const yoyPct = [];
+      const yoyColors = [];
+      const cumPct = [];
+
+      for (let i = 1; i < years.length; i++) {
+        if (avgByYear[i] == null || avgByYear[i - 1] == null) continue;
+        const change = ((avgByYear[i] - avgByYear[i - 1]) / avgByYear[i - 1]) * 100;
+        yoyYears.push(years[i].toString());
+        yoyPct.push(parseFloat(change.toFixed(1)));
+        yoyColors.push(change >= 0 ? '#ef4444' : '#22c55e');
+        const cumulative = ((avgByYear[i] - avgByYear[0]) / avgByYear[0]) * 100;
+        cumPct.push(parseFloat(cumulative.toFixed(1)));
+      }
+
+      const barTrace = {
+        x: yoyYears,
+        y: yoyPct,
+        type: 'bar',
+        marker: { color: yoyColors },
+        name: 'YoY % Change',
+        text: yoyPct.map(v => (v >= 0 ? '+' : '') + v + '%'),
+        textposition: 'outside',
+        hovertext: yoyYears.map((yr, i) =>
+          `${yr}<br>YoY Change: ${yoyPct[i] >= 0 ? '+' : ''}${yoyPct[i]}%`
+        ),
+        hoverinfo: 'text',
+      };
+
+      const lineTrace = {
+        x: yoyYears,
+        y: cumPct,
+        type: 'scatter',
+        mode: 'lines+markers',
+        line: { color: '#1a1a2e', width: 2.5 },
+        marker: { size: 6 },
+        name: 'Cumulative Growth',
+        yaxis: 'y2',
+        text: cumPct.map(v => `Cumulative: ${v >= 0 ? '+' : ''}${v}% since ${years[0]}`),
+        hoverinfo: 'text',
+      };
+
+      Plotly.newPlot('tax-trend-chart', [barTrace, lineTrace], {
+        xaxis: { title: 'Year', type: 'category' },
+        yaxis: { title: 'YoY Change (%)', ticksuffix: '%', zeroline: true, zerolinecolor: '#ccc', zerolinewidth: 1 },
+        yaxis2: { title: 'Cumulative Growth (%)', ticksuffix: '%', overlaying: 'y', side: 'right' },
+        margin: { t: 20, r: 60 },
+        legend: { x: 0, y: 1 },
+        hovermode: 'closest',
+        bargap: 0.3,
+      }, { responsive: true });
+    }
+
+    function renderAppreciationChart(data) {
+      const sales = filterSales(data.sales);
+      const props = filterProperties(data.properties);
+
+      // Group sales by unit
+      const byUnit = {};
+      sales.forEach(s => { (byUnit[s.unit] = byUnit[s.unit] || []).push(s); });
+
+      // Build property lookup for current estimates
+      const propMap = {};
+      props.forEach(p => { propMap[p.unit] = p; });
+
+      const results = [];
+      Object.keys(byUnit).forEach(unit => {
+        const unitSales = byUnit[unit].slice().sort((a, b) => a.date.localeCompare(b.date));
+        const firstSale = unitSales[0];
+        const startValue = firstSale.price;
+        const startDate = new Date(firstSale.date);
+
+        // End value: use current estimate avg if available, otherwise most recent sale
+        const prop = propMap[parseInt(unit)];
+        let endValue, endLabel;
+        if (prop) {
+          const vals = [prop.zillow, prop.redfin].filter(v => v != null);
+          if (vals.length > 0) {
+            endValue = vals.reduce((a, b) => a + b, 0) / vals.length;
+            endLabel = 'Current Estimate';
+          }
+        }
+        if (!endValue && unitSales.length > 1) {
+          const lastSale = unitSales[unitSales.length - 1];
+          endValue = lastSale.price;
+          endLabel = 'Last Sale (' + lastSale.date + ')';
+        }
+        if (!endValue) return;
+
+        const endDate = endLabel === 'Current Estimate' ? new Date() : new Date(unitSales[unitSales.length - 1].date);
+        const years = (endDate - startDate) / (365.25 * 24 * 60 * 60 * 1000);
+        if (years < 0.5) return;
+
+        const annualRate = (Math.pow(endValue / startValue, 1 / years) - 1) * 100;
+
+        results.push({
+          unit: parseInt(unit),
+          rate: annualRate,
+          firstDate: firstSale.date,
+          firstPrice: startValue,
+          endValue: Math.round(endValue),
+          endLabel: endLabel,
+          years: years,
+        });
+      });
+
+      if (results.length === 0) return;
+
+      // Sort by appreciation rate
+      results.sort((a, b) => a.rate - b.rate);
+
+      const colors = results.map(r => r.rate >= 0 ? '#22c55e' : '#ef4444');
+
+      Plotly.newPlot('appreciation-chart', [{
+        x: results.map(r => 'Unit ' + r.unit),
+        y: results.map(r => r.rate),
+        type: 'bar',
+        marker: { color: colors },
+        text: results.map(r =>
+          `Unit ${r.unit}<br>` +
+          `First sale: ${r.firstDate} at ${fmt(r.firstPrice)}<br>` +
+          `${r.endLabel}: ${fmt(r.endValue)}<br>` +
+          `${r.years.toFixed(1)} years<br>` +
+          `Annual rate: ${r.rate.toFixed(1)}%`
+        ),
+        hoverinfo: 'text',
+      }], {
+        xaxis: { title: 'Unit', type: 'category' },
+        yaxis: { title: 'Annual Appreciation Rate (%)', ticksuffix: '%' },
+        margin: { t: 20, r: 30 },
+        hovermode: 'closest',
+      }, { responsive: true });
+    }
+
+    function renderDaysSinceSaleChart(data) {
+      const sales = filterSales(data.sales);
+      const today = new Date();
+
+      // Find most recent sale per unit
+      const lastSaleByUnit = {};
+      sales.forEach(s => {
+        if (!lastSaleByUnit[s.unit] || s.date > lastSaleByUnit[s.unit].date) {
+          lastSaleByUnit[s.unit] = s;
+        }
+      });
+
+      const results = Object.values(lastSaleByUnit).map(s => {
+        const saleDate = new Date(s.date);
+        const days = Math.round((today - saleDate) / (24 * 60 * 60 * 1000));
+        return {
+          unit: s.unit,
+          days: days,
+          years: (days / 365.25).toFixed(1),
+          date: s.date,
+          price: s.price,
+        };
+      });
+
+      if (results.length === 0) return;
+
+      // Sort by longest held first
+      results.sort((a, b) => b.days - a.days);
+
+      // Color gradient: green (recent) to amber (long-held)
+      const maxDays = results[0].days;
+      const minDays = results[results.length - 1].days;
+      const range = maxDays - minDays || 1;
+      const colors = results.map(r => {
+        const t = (r.days - minDays) / range; // 0 = recent, 1 = long-held
+        const red = Math.round(34 + t * (245 - 34));
+        const green = Math.round(197 + t * (158 - 197));
+        const blue = Math.round(94 + t * (11 - 94));
+        return `rgb(${red},${green},${blue})`;
+      });
+
+      // Adjust height for many units
+      const chartHeight = Math.max(450, results.length * 18);
+      const el = document.getElementById('days-since-sale-chart');
+      el.style.height = chartHeight + 'px';
+
+      Plotly.newPlot('days-since-sale-chart', [{
+        y: results.map(r => 'Unit ' + r.unit),
+        x: results.map(r => r.days),
+        type: 'bar',
+        orientation: 'h',
+        marker: { color: colors },
+        text: results.map(r =>
+          `Unit ${r.unit}<br>` +
+          `Last sale: ${r.date}<br>` +
+          `Price: ${fmt(r.price)}<br>` +
+          `${r.days.toLocaleString()} days (${r.years} years)`
+        ),
+        hoverinfo: 'text',
+      }], {
+        xaxis: { title: 'Days Since Last Sale' },
+        yaxis: { type: 'category', autorange: 'reversed', dtick: 1 },
+        margin: { t: 20, r: 30, l: 80 },
         hovermode: 'closest',
       }, { responsive: true });
     }

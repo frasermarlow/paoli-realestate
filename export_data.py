@@ -16,6 +16,7 @@ OUTPUT_PATH = os.path.join(DOCS_DIR, "data.json")
 SALES_CSV = os.path.join(config.BASE_DIR, "hoa_sales.csv")
 SCRAPED_SALES = os.path.join(config.BASE_DIR, "data", "scraped_sales_history.json")
 TAX_HISTORY = os.path.join(config.BASE_DIR, "data", "tax_history.json")
+SQFT_PATH = os.path.join(config.BASE_DIR, "data", "sqft.json")
 
 
 def load_hoa_sales():
@@ -132,6 +133,14 @@ def load_tax_history():
         return json.load(f)
 
 
+def load_sqft():
+    """Load scraped square footage data."""
+    if not os.path.exists(SQFT_PATH):
+        return {}
+    with open(SQFT_PATH) as f:
+        return json.load(f)
+
+
 def main():
     os.makedirs(DOCS_DIR, exist_ok=True)
 
@@ -139,10 +148,17 @@ def main():
     redfin_sales = load_redfin_sales()
     merged = merge_sales(hoa_sales, redfin_sales)
     taxes = load_tax_history()
+    sqft = load_sqft()
+
+    properties = export_estimates()
+    # Merge sqft into property records
+    for prop in properties:
+        unit_key = str(prop["unit"])
+        prop["sqft"] = sqft.get(unit_key)
 
     data = {
         "exported_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-        "properties": export_estimates(),
+        "properties": properties,
         "sales": merged,
         "taxes": taxes,
     }
