@@ -1,0 +1,6208 @@
+{
+  "111": [
+    {
+      "year": 2025,
+      "tax": 5134,
+      "land": 32760,
+      "additions": 103550,
+      "assessed": 136310
+    },
+    {
+      "year": 2024,
+      "tax": 4801,
+      "land": 32760,
+      "additions": 103550,
+      "assessed": 136310
+    },
+    {
+      "year": 2023,
+      "tax": 4510,
+      "land": 32760,
+      "additions": 103550,
+      "assessed": 136310
+    },
+    {
+      "year": 2022,
+      "tax": 4394,
+      "land": 32760,
+      "additions": 103550,
+      "assessed": 136310
+    },
+    {
+      "year": 2021,
+      "tax": 4310,
+      "land": 32760,
+      "additions": 103550,
+      "assessed": 136310
+    },
+    {
+      "year": 2020,
+      "tax": 4191,
+      "land": 32760,
+      "additions": 103550,
+      "assessed": 136310
+    },
+    {
+      "year": 2019,
+      "tax": 4059,
+      "land": 32760,
+      "additions": 103550,
+      "assessed": 136310
+    },
+    {
+      "year": 2018,
+      "tax": 3979,
+      "land": 32760,
+      "additions": 103550,
+      "assessed": 136310
+    },
+    {
+      "year": 2017,
+      "tax": 3883,
+      "land": 32760,
+      "additions": 103550,
+      "assessed": 136310
+    },
+    {
+      "year": 2015,
+      "tax": 3647,
+      "land": 32760,
+      "additions": 103550,
+      "assessed": 136310
+    },
+    {
+      "year": 2014,
+      "tax": 3562,
+      "land": 32760,
+      "additions": 103550,
+      "assessed": 136310
+    },
+    {
+      "year": 2013,
+      "tax": 3497,
+      "land": 32760,
+      "additions": 103550,
+      "assessed": 136310
+    },
+    {
+      "year": 2012,
+      "tax": 3386,
+      "land": 32760,
+      "additions": 103550,
+      "assessed": 136310
+    },
+    {
+      "year": 2011,
+      "tax": 3294,
+      "land": 32760,
+      "additions": 103550,
+      "assessed": 136310
+    },
+    {
+      "year": 2010,
+      "tax": 3226,
+      "land": 32760,
+      "additions": 103550,
+      "assessed": 136310
+    }
+  ],
+  "112": [
+    {
+      "year": 2025,
+      "tax": 4885,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2024,
+      "tax": 4568,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2023,
+      "tax": 4291,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2022,
+      "tax": 4180,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2021,
+      "tax": 4101,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2020,
+      "tax": 3988,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2019,
+      "tax": 3862,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2018,
+      "tax": 3785,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2017,
+      "tax": 3695,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2015,
+      "tax": 3470,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2014,
+      "tax": 3389,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2013,
+      "tax": 3327,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2012,
+      "tax": 3222,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2011,
+      "tax": 3134,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2010,
+      "tax": 3069,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    }
+  ],
+  "113": [
+    {
+      "year": 2025,
+      "tax": 4925,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2024,
+      "tax": 4606,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2023,
+      "tax": 4327,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2022,
+      "tax": 4215,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2021,
+      "tax": 4135,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2020,
+      "tax": 4021,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2019,
+      "tax": 3894,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2018,
+      "tax": 3817,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2017,
+      "tax": 3725,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2015,
+      "tax": 3499,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2014,
+      "tax": 3417,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2013,
+      "tax": 3355,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2012,
+      "tax": 3249,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2011,
+      "tax": 3160,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2010,
+      "tax": 3095,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    }
+  ],
+  "114": [
+    {
+      "year": 2025,
+      "tax": 4875,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2024,
+      "tax": 4559,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2023,
+      "tax": 4283,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2022,
+      "tax": 4172,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2021,
+      "tax": 4093,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2020,
+      "tax": 3980,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2019,
+      "tax": 3854,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2018,
+      "tax": 3778,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2017,
+      "tax": 3687,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2015,
+      "tax": 3463,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2014,
+      "tax": 3383,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2013,
+      "tax": 3321,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2012,
+      "tax": 3216,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2011,
+      "tax": 3128,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2010,
+      "tax": 3063,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    }
+  ],
+  "116": [
+    {
+      "year": 2025,
+      "tax": 4875,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2024,
+      "tax": 4559,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2023,
+      "tax": 4283,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2022,
+      "tax": 4172,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2021,
+      "tax": 4093,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2020,
+      "tax": 3980,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2019,
+      "tax": 3854,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2018,
+      "tax": 3778,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2017,
+      "tax": 3687,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2015,
+      "tax": 3463,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2014,
+      "tax": 3383,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2013,
+      "tax": 3321,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2012,
+      "tax": 3216,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2011,
+      "tax": 3128,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2010,
+      "tax": 3063,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    }
+  ],
+  "117": [
+    {
+      "year": 2025,
+      "tax": 4913,
+      "land": 32760,
+      "additions": 97690,
+      "assessed": 130450
+    },
+    {
+      "year": 2024,
+      "tax": 4595,
+      "land": 32760,
+      "additions": 97690,
+      "assessed": 130450
+    },
+    {
+      "year": 2023,
+      "tax": 4316,
+      "land": 32760,
+      "additions": 97690,
+      "assessed": 130450
+    },
+    {
+      "year": 2022,
+      "tax": 4205,
+      "land": 32760,
+      "additions": 97690,
+      "assessed": 130450
+    },
+    {
+      "year": 2021,
+      "tax": 4125,
+      "land": 32760,
+      "additions": 97690,
+      "assessed": 130450
+    },
+    {
+      "year": 2020,
+      "tax": 4011,
+      "land": 32760,
+      "additions": 97690,
+      "assessed": 130450
+    },
+    {
+      "year": 2019,
+      "tax": 3884,
+      "land": 32760,
+      "additions": 97690,
+      "assessed": 130450
+    },
+    {
+      "year": 2018,
+      "tax": 3807,
+      "land": 32760,
+      "additions": 97690,
+      "assessed": 130450
+    },
+    {
+      "year": 2017,
+      "tax": 3716,
+      "land": 32760,
+      "additions": 97690,
+      "assessed": 130450
+    },
+    {
+      "year": 2015,
+      "tax": 3490,
+      "land": 32760,
+      "additions": 97690,
+      "assessed": 130450
+    },
+    {
+      "year": 2014,
+      "tax": 3409,
+      "land": 32760,
+      "additions": 97690,
+      "assessed": 130450
+    },
+    {
+      "year": 2013,
+      "tax": 3347,
+      "land": 32760,
+      "additions": 97690,
+      "assessed": 130450
+    },
+    {
+      "year": 2012,
+      "tax": 3241,
+      "land": 32760,
+      "additions": 97690,
+      "assessed": 130450
+    },
+    {
+      "year": 2011,
+      "tax": 3152,
+      "land": 32760,
+      "additions": 97690,
+      "assessed": 130450
+    },
+    {
+      "year": 2010,
+      "tax": 3087,
+      "land": 32760,
+      "additions": 97690,
+      "assessed": 130450
+    }
+  ],
+  "118": [
+    {
+      "year": 2025,
+      "tax": 4875,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2024,
+      "tax": 4559,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2023,
+      "tax": 4283,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2022,
+      "tax": 4172,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2021,
+      "tax": 4093,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2020,
+      "tax": 3980,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2019,
+      "tax": 3854,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2018,
+      "tax": 3778,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2017,
+      "tax": 3687,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2015,
+      "tax": 3463,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2014,
+      "tax": 3383,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2013,
+      "tax": 3321,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2012,
+      "tax": 3216,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2011,
+      "tax": 3128,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2010,
+      "tax": 3063,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    }
+  ],
+  "119": [
+    {
+      "year": 2025,
+      "tax": 4935,
+      "land": 32760,
+      "additions": 98260,
+      "assessed": 131020
+    },
+    {
+      "year": 2024,
+      "tax": 4615,
+      "land": 32760,
+      "additions": 98260,
+      "assessed": 131020
+    },
+    {
+      "year": 2023,
+      "tax": 4335,
+      "land": 32760,
+      "additions": 98260,
+      "assessed": 131020
+    },
+    {
+      "year": 2022,
+      "tax": 4223,
+      "land": 32760,
+      "additions": 98260,
+      "assessed": 131020
+    },
+    {
+      "year": 2021,
+      "tax": 4143,
+      "land": 32760,
+      "additions": 98260,
+      "assessed": 131020
+    },
+    {
+      "year": 2020,
+      "tax": 4029,
+      "land": 32760,
+      "additions": 98260,
+      "assessed": 131020
+    },
+    {
+      "year": 2019,
+      "tax": 3901,
+      "land": 32760,
+      "additions": 98260,
+      "assessed": 131020
+    },
+    {
+      "year": 2018,
+      "tax": 3824,
+      "land": 32760,
+      "additions": 98260,
+      "assessed": 131020
+    },
+    {
+      "year": 2017,
+      "tax": 3732,
+      "land": 32760,
+      "additions": 98260,
+      "assessed": 131020
+    },
+    {
+      "year": 2015,
+      "tax": 3506,
+      "land": 32760,
+      "additions": 98260,
+      "assessed": 131020
+    },
+    {
+      "year": 2014,
+      "tax": 3424,
+      "land": 32760,
+      "additions": 98260,
+      "assessed": 131020
+    },
+    {
+      "year": 2013,
+      "tax": 3361,
+      "land": 32760,
+      "additions": 98260,
+      "assessed": 131020
+    },
+    {
+      "year": 2012,
+      "tax": 3255,
+      "land": 32760,
+      "additions": 98260,
+      "assessed": 131020
+    },
+    {
+      "year": 2011,
+      "tax": 3166,
+      "land": 32760,
+      "additions": 98260,
+      "assessed": 131020
+    },
+    {
+      "year": 2010,
+      "tax": 3101,
+      "land": 32760,
+      "additions": 98260,
+      "assessed": 131020
+    }
+  ],
+  "120": [
+    {
+      "year": 2025,
+      "tax": 4875,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2024,
+      "tax": 4559,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2023,
+      "tax": 4283,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2022,
+      "tax": 4172,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2021,
+      "tax": 4093,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2020,
+      "tax": 3980,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2019,
+      "tax": 3854,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2018,
+      "tax": 3778,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2017,
+      "tax": 3687,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2015,
+      "tax": 3463,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2014,
+      "tax": 3383,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2013,
+      "tax": 3321,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2012,
+      "tax": 3216,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2011,
+      "tax": 3128,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2010,
+      "tax": 3063,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    }
+  ],
+  "121": [
+    {
+      "year": 2025,
+      "tax": 4913,
+      "land": 32760,
+      "additions": 97690,
+      "assessed": 130450
+    },
+    {
+      "year": 2024,
+      "tax": 4595,
+      "land": 32760,
+      "additions": 97690,
+      "assessed": 130450
+    },
+    {
+      "year": 2023,
+      "tax": 4316,
+      "land": 32760,
+      "additions": 97690,
+      "assessed": 130450
+    },
+    {
+      "year": 2022,
+      "tax": 4205,
+      "land": 32760,
+      "additions": 97690,
+      "assessed": 130450
+    },
+    {
+      "year": 2021,
+      "tax": 4125,
+      "land": 32760,
+      "additions": 97690,
+      "assessed": 130450
+    },
+    {
+      "year": 2020,
+      "tax": 4011,
+      "land": 32760,
+      "additions": 97690,
+      "assessed": 130450
+    },
+    {
+      "year": 2019,
+      "tax": 3884,
+      "land": 32760,
+      "additions": 97690,
+      "assessed": 130450
+    },
+    {
+      "year": 2018,
+      "tax": 3807,
+      "land": 32760,
+      "additions": 97690,
+      "assessed": 130450
+    },
+    {
+      "year": 2017,
+      "tax": 3716,
+      "land": 32760,
+      "additions": 97690,
+      "assessed": 130450
+    },
+    {
+      "year": 2015,
+      "tax": 3490,
+      "land": 32760,
+      "additions": 97690,
+      "assessed": 130450
+    },
+    {
+      "year": 2014,
+      "tax": 3409,
+      "land": 32760,
+      "additions": 97690,
+      "assessed": 130450
+    },
+    {
+      "year": 2013,
+      "tax": 3347,
+      "land": 32760,
+      "additions": 97690,
+      "assessed": 130450
+    },
+    {
+      "year": 2012,
+      "tax": 3241,
+      "land": 32760,
+      "additions": 97690,
+      "assessed": 130450
+    },
+    {
+      "year": 2011,
+      "tax": 3152,
+      "land": 32760,
+      "additions": 97690,
+      "assessed": 130450
+    },
+    {
+      "year": 2010,
+      "tax": 3087,
+      "land": 32760,
+      "additions": 97690,
+      "assessed": 130450
+    }
+  ],
+  "122": [
+    {
+      "year": 2025,
+      "tax": 4875,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2024,
+      "tax": 4559,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2023,
+      "tax": 4283,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2022,
+      "tax": 4172,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2021,
+      "tax": 4093,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2020,
+      "tax": 3980,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2019,
+      "tax": 3854,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2018,
+      "tax": 3778,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2017,
+      "tax": 3687,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2015,
+      "tax": 3463,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2014,
+      "tax": 3383,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2013,
+      "tax": 3321,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2012,
+      "tax": 3216,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2011,
+      "tax": 3128,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2010,
+      "tax": 3063,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    }
+  ],
+  "123": [
+    {
+      "year": 2025,
+      "tax": 4925,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2024,
+      "tax": 4606,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2023,
+      "tax": 4327,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2022,
+      "tax": 4215,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2021,
+      "tax": 4135,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2020,
+      "tax": 4021,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2019,
+      "tax": 3894,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2018,
+      "tax": 3817,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2017,
+      "tax": 3725,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2015,
+      "tax": 3499,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2014,
+      "tax": 3417,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2013,
+      "tax": 3355,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2012,
+      "tax": 3249,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2011,
+      "tax": 3160,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2010,
+      "tax": 3095,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    }
+  ],
+  "124": [
+    {
+      "year": 2025,
+      "tax": 5083,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2024,
+      "tax": 4754,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2023,
+      "tax": 4466,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2022,
+      "tax": 4350,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2021,
+      "tax": 4268,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2020,
+      "tax": 4150,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2019,
+      "tax": 4019,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2018,
+      "tax": 3939,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2017,
+      "tax": 3845,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2015,
+      "tax": 3611,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2014,
+      "tax": 3527,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2013,
+      "tax": 3463,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2012,
+      "tax": 3353,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2011,
+      "tax": 3262,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2010,
+      "tax": 3194,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    }
+  ],
+  "125": [
+    {
+      "year": 2025,
+      "tax": 5134,
+      "land": 32760,
+      "additions": 103550,
+      "assessed": 136310
+    },
+    {
+      "year": 2024,
+      "tax": 4801,
+      "land": 32760,
+      "additions": 103550,
+      "assessed": 136310
+    },
+    {
+      "year": 2023,
+      "tax": 4510,
+      "land": 32760,
+      "additions": 103550,
+      "assessed": 136310
+    },
+    {
+      "year": 2022,
+      "tax": 4394,
+      "land": 32760,
+      "additions": 103550,
+      "assessed": 136310
+    },
+    {
+      "year": 2021,
+      "tax": 4310,
+      "land": 32760,
+      "additions": 103550,
+      "assessed": 136310
+    },
+    {
+      "year": 2020,
+      "tax": 4191,
+      "land": 32760,
+      "additions": 103550,
+      "assessed": 136310
+    },
+    {
+      "year": 2019,
+      "tax": 4059,
+      "land": 32760,
+      "additions": 103550,
+      "assessed": 136310
+    },
+    {
+      "year": 2018,
+      "tax": 3979,
+      "land": 32760,
+      "additions": 103550,
+      "assessed": 136310
+    },
+    {
+      "year": 2017,
+      "tax": 3883,
+      "land": 32760,
+      "additions": 103550,
+      "assessed": 136310
+    },
+    {
+      "year": 2015,
+      "tax": 3647,
+      "land": 32760,
+      "additions": 103550,
+      "assessed": 136310
+    },
+    {
+      "year": 2014,
+      "tax": 3562,
+      "land": 32760,
+      "additions": 103550,
+      "assessed": 136310
+    },
+    {
+      "year": 2013,
+      "tax": 3497,
+      "land": 32760,
+      "additions": 103550,
+      "assessed": 136310
+    },
+    {
+      "year": 2012,
+      "tax": 3386,
+      "land": 32760,
+      "additions": 103550,
+      "assessed": 136310
+    },
+    {
+      "year": 2011,
+      "tax": 3294,
+      "land": 32760,
+      "additions": 103550,
+      "assessed": 136310
+    },
+    {
+      "year": 2010,
+      "tax": 3226,
+      "land": 32760,
+      "additions": 103550,
+      "assessed": 136310
+    }
+  ],
+  "126": [
+    {
+      "year": 2025,
+      "tax": 4925,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2024,
+      "tax": 4606,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2023,
+      "tax": 4327,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2022,
+      "tax": 4215,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2021,
+      "tax": 4135,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2020,
+      "tax": 4021,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2019,
+      "tax": 3894,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2018,
+      "tax": 3817,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2017,
+      "tax": 3725,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2015,
+      "tax": 3499,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2014,
+      "tax": 3417,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2013,
+      "tax": 3355,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2012,
+      "tax": 3249,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2011,
+      "tax": 3160,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2010,
+      "tax": 3095,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    }
+  ],
+  "127": [
+    {
+      "year": 2025,
+      "tax": 4885,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2024,
+      "tax": 4568,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2023,
+      "tax": 4291,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2022,
+      "tax": 4180,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2021,
+      "tax": 4101,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2020,
+      "tax": 3988,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2019,
+      "tax": 3862,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2018,
+      "tax": 3785,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2017,
+      "tax": 3695,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2015,
+      "tax": 3470,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2014,
+      "tax": 3389,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2013,
+      "tax": 3327,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2012,
+      "tax": 3222,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2011,
+      "tax": 3134,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2010,
+      "tax": 3069,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    }
+  ],
+  "128": [
+    {
+      "year": 2025,
+      "tax": 5114,
+      "land": 32760,
+      "additions": 103020,
+      "assessed": 135780
+    },
+    {
+      "year": 2024,
+      "tax": 4783,
+      "land": 32760,
+      "additions": 103020,
+      "assessed": 135780
+    },
+    {
+      "year": 2023,
+      "tax": 4492,
+      "land": 32760,
+      "additions": 103020,
+      "assessed": 135780
+    },
+    {
+      "year": 2022,
+      "tax": 4377,
+      "land": 32760,
+      "additions": 103020,
+      "assessed": 135780
+    },
+    {
+      "year": 2021,
+      "tax": 4293,
+      "land": 32760,
+      "additions": 103020,
+      "assessed": 135780
+    },
+    {
+      "year": 2020,
+      "tax": 4175,
+      "land": 32760,
+      "additions": 103020,
+      "assessed": 135780
+    },
+    {
+      "year": 2019,
+      "tax": 4043,
+      "land": 32760,
+      "additions": 103020,
+      "assessed": 135780
+    },
+    {
+      "year": 2018,
+      "tax": 3963,
+      "land": 32760,
+      "additions": 103020,
+      "assessed": 135780
+    },
+    {
+      "year": 2017,
+      "tax": 3725,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2015,
+      "tax": 3499,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2014,
+      "tax": 3417,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2013,
+      "tax": 3355,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2012,
+      "tax": 3249,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2011,
+      "tax": 3160,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2010,
+      "tax": 3095,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    }
+  ],
+  "129": [
+    {
+      "year": 2025,
+      "tax": 4875,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2024,
+      "tax": 4559,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2023,
+      "tax": 4283,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2022,
+      "tax": 4172,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2021,
+      "tax": 4093,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2020,
+      "tax": 3980,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2019,
+      "tax": 3854,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2018,
+      "tax": 3778,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2017,
+      "tax": 3687,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2015,
+      "tax": 3463,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2014,
+      "tax": 3383,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2013,
+      "tax": 3321,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2012,
+      "tax": 3216,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2011,
+      "tax": 3128,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2010,
+      "tax": 3063,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    }
+  ],
+  "130": [
+    {
+      "year": 2025,
+      "tax": 4875,
+      "land": 32760,
+      "additions": 96680,
+      "assessed": 129440
+    },
+    {
+      "year": 2024,
+      "tax": 4559,
+      "land": 32760,
+      "additions": 96680,
+      "assessed": 129440
+    },
+    {
+      "year": 2023,
+      "tax": 4283,
+      "land": 32760,
+      "additions": 96680,
+      "assessed": 129440
+    },
+    {
+      "year": 2022,
+      "tax": 4172,
+      "land": 32760,
+      "additions": 96680,
+      "assessed": 129440
+    },
+    {
+      "year": 2021,
+      "tax": 4093,
+      "land": 32760,
+      "additions": 96680,
+      "assessed": 129440
+    },
+    {
+      "year": 2020,
+      "tax": 3980,
+      "land": 32760,
+      "additions": 96680,
+      "assessed": 129440
+    },
+    {
+      "year": 2019,
+      "tax": 3854,
+      "land": 32760,
+      "additions": 96680,
+      "assessed": 129440
+    },
+    {
+      "year": 2018,
+      "tax": 3778,
+      "land": 32760,
+      "additions": 96680,
+      "assessed": 129440
+    },
+    {
+      "year": 2017,
+      "tax": 3687,
+      "land": 32760,
+      "additions": 96680,
+      "assessed": 129440
+    },
+    {
+      "year": 2015,
+      "tax": 3463,
+      "land": 32760,
+      "additions": 96680,
+      "assessed": 129440
+    },
+    {
+      "year": 2014,
+      "tax": 3383,
+      "land": 32760,
+      "additions": 96680,
+      "assessed": 129440
+    },
+    {
+      "year": 2013,
+      "tax": 3321,
+      "land": 32760,
+      "additions": 96680,
+      "assessed": 129440
+    },
+    {
+      "year": 2012,
+      "tax": 3216,
+      "land": 32760,
+      "additions": 96680,
+      "assessed": 129440
+    },
+    {
+      "year": 2011,
+      "tax": 3128,
+      "land": 32760,
+      "additions": 96680,
+      "assessed": 129440
+    },
+    {
+      "year": 2010,
+      "tax": 3063,
+      "land": 32760,
+      "additions": 96680,
+      "assessed": 129440
+    }
+  ],
+  "131": [
+    {
+      "year": 2025,
+      "tax": 4925,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2024,
+      "tax": 4606,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2023,
+      "tax": 4327,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2022,
+      "tax": 4215,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2021,
+      "tax": 4135,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2020,
+      "tax": 4021,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2019,
+      "tax": 3894,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2018,
+      "tax": 3817,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2017,
+      "tax": 3725,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2015,
+      "tax": 3499,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2014,
+      "tax": 3417,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2013,
+      "tax": 3355,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2012,
+      "tax": 3249,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2011,
+      "tax": 3160,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2010,
+      "tax": 3095,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    }
+  ],
+  "132": [
+    {
+      "year": 2025,
+      "tax": 4875,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2024,
+      "tax": 4559,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2023,
+      "tax": 4283,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2022,
+      "tax": 4172,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2021,
+      "tax": 4093,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2020,
+      "tax": 3980,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2019,
+      "tax": 3854,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2018,
+      "tax": 3778,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2017,
+      "tax": 3687,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2015,
+      "tax": 3463,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2014,
+      "tax": 3383,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2013,
+      "tax": 3321,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2012,
+      "tax": 3216,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2011,
+      "tax": 3128,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2010,
+      "tax": 3063,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    }
+  ],
+  "133": [
+    {
+      "year": 2025,
+      "tax": 4925,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2024,
+      "tax": 4606,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2023,
+      "tax": 4327,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2022,
+      "tax": 4215,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2021,
+      "tax": 4135,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2020,
+      "tax": 4021,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2019,
+      "tax": 3894,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2018,
+      "tax": 3817,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2017,
+      "tax": 3725,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2015,
+      "tax": 3499,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2014,
+      "tax": 3417,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2013,
+      "tax": 3355,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2012,
+      "tax": 3249,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2011,
+      "tax": 3160,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2010,
+      "tax": 3095,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    }
+  ],
+  "134": [
+    {
+      "year": 2025,
+      "tax": 4885,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2024,
+      "tax": 4568,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2023,
+      "tax": 4291,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2022,
+      "tax": 4180,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2021,
+      "tax": 4101,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2020,
+      "tax": 3988,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2019,
+      "tax": 3862,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2018,
+      "tax": 3785,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2017,
+      "tax": 3695,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2015,
+      "tax": 3470,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2014,
+      "tax": 3389,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2013,
+      "tax": 3327,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2012,
+      "tax": 3222,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2011,
+      "tax": 3134,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2010,
+      "tax": 3069,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    }
+  ],
+  "135": [
+    {
+      "year": 2025,
+      "tax": 4925,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2024,
+      "tax": 4606,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2023,
+      "tax": 4327,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2022,
+      "tax": 4215,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2021,
+      "tax": 4135,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2020,
+      "tax": 4021,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2019,
+      "tax": 3894,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2018,
+      "tax": 3817,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2017,
+      "tax": 3725,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2015,
+      "tax": 3499,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2014,
+      "tax": 3417,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2013,
+      "tax": 3355,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2012,
+      "tax": 3249,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2011,
+      "tax": 3160,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2010,
+      "tax": 3095,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    }
+  ],
+  "136": [
+    {
+      "year": 2025,
+      "tax": 4875,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2024,
+      "tax": 4559,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2023,
+      "tax": 4283,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2022,
+      "tax": 4172,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2021,
+      "tax": 4093,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2020,
+      "tax": 3980,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2019,
+      "tax": 3854,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2018,
+      "tax": 3778,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2017,
+      "tax": 3687,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2015,
+      "tax": 3463,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2014,
+      "tax": 3383,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2013,
+      "tax": 3321,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2012,
+      "tax": 3216,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2011,
+      "tax": 3128,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2010,
+      "tax": 3063,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    }
+  ],
+  "138": [
+    {
+      "year": 2025,
+      "tax": 5083,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2024,
+      "tax": 4754,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2023,
+      "tax": 4466,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2022,
+      "tax": 4350,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2021,
+      "tax": 4268,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2020,
+      "tax": 4150,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2019,
+      "tax": 4019,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2018,
+      "tax": 3939,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2017,
+      "tax": 3845,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2015,
+      "tax": 3611,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2014,
+      "tax": 3527,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2013,
+      "tax": 3463,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2012,
+      "tax": 3353,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2011,
+      "tax": 3262,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2010,
+      "tax": 3194,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    }
+  ],
+  "139": [
+    {
+      "year": 2025,
+      "tax": 4925,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2024,
+      "tax": 4606,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2023,
+      "tax": 4327,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2022,
+      "tax": 4215,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2021,
+      "tax": 4135,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2020,
+      "tax": 4021,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2019,
+      "tax": 3894,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2018,
+      "tax": 3817,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2017,
+      "tax": 3725,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2015,
+      "tax": 3499,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2014,
+      "tax": 3417,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2013,
+      "tax": 3355,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2012,
+      "tax": 3249,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2011,
+      "tax": 3160,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2010,
+      "tax": 3095,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    }
+  ],
+  "140": [
+    {
+      "year": 2025,
+      "tax": 4875,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2024,
+      "tax": 4559,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2023,
+      "tax": 4283,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2022,
+      "tax": 4172,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2021,
+      "tax": 4093,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2020,
+      "tax": 3980,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2019,
+      "tax": 3854,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2018,
+      "tax": 3778,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2017,
+      "tax": 3687,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2015,
+      "tax": 3463,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2014,
+      "tax": 3383,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2013,
+      "tax": 3321,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2012,
+      "tax": 3216,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2011,
+      "tax": 3128,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2010,
+      "tax": 3063,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    }
+  ],
+  "141": [
+    {
+      "year": 2025,
+      "tax": 4925,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2024,
+      "tax": 4606,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2023,
+      "tax": 4327,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2022,
+      "tax": 4215,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2021,
+      "tax": 4135,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2020,
+      "tax": 4021,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2019,
+      "tax": 3894,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2018,
+      "tax": 3817,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2017,
+      "tax": 3725,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2015,
+      "tax": 3499,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2014,
+      "tax": 3417,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2013,
+      "tax": 3355,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2012,
+      "tax": 3249,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2011,
+      "tax": 3160,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2010,
+      "tax": 3095,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    }
+  ],
+  "142": [
+    {
+      "year": 2025,
+      "tax": 4885,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2024,
+      "tax": 4568,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2023,
+      "tax": 4291,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2022,
+      "tax": 4180,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2021,
+      "tax": 4101,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2020,
+      "tax": 3988,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2019,
+      "tax": 3862,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2018,
+      "tax": 3785,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2017,
+      "tax": 3695,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2015,
+      "tax": 3470,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2014,
+      "tax": 3389,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2013,
+      "tax": 3327,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2012,
+      "tax": 3222,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2011,
+      "tax": 3134,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2010,
+      "tax": 3069,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    }
+  ],
+  "143": [
+    {
+      "year": 2025,
+      "tax": 4925,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2024,
+      "tax": 4606,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2023,
+      "tax": 4327,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2022,
+      "tax": 4215,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2021,
+      "tax": 4135,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2020,
+      "tax": 4021,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2019,
+      "tax": 3894,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2018,
+      "tax": 3817,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2017,
+      "tax": 3725,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2015,
+      "tax": 3499,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2014,
+      "tax": 3417,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2013,
+      "tax": 3355,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2012,
+      "tax": 3249,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2011,
+      "tax": 3160,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2010,
+      "tax": 3095,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    }
+  ],
+  "144": [
+    {
+      "year": 2025,
+      "tax": 5083,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2024,
+      "tax": 4754,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2023,
+      "tax": 4466,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2022,
+      "tax": 4350,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2021,
+      "tax": 4268,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2020,
+      "tax": 4150,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2019,
+      "tax": 4019,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2018,
+      "tax": 3939,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2017,
+      "tax": 3845,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2015,
+      "tax": 3611,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2014,
+      "tax": 3527,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2013,
+      "tax": 3463,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2012,
+      "tax": 3353,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2011,
+      "tax": 3262,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2010,
+      "tax": 3194,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    }
+  ],
+  "145": [
+    {
+      "year": 2025,
+      "tax": 4925,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2024,
+      "tax": 4606,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2023,
+      "tax": 4327,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2022,
+      "tax": 4215,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2021,
+      "tax": 4135,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2020,
+      "tax": 4021,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2019,
+      "tax": 3894,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2018,
+      "tax": 3817,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2017,
+      "tax": 3725,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2015,
+      "tax": 3499,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2014,
+      "tax": 3417,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2013,
+      "tax": 3355,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2012,
+      "tax": 3249,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2011,
+      "tax": 3160,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2010,
+      "tax": 3095,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    }
+  ],
+  "146": [
+    {
+      "year": 2025,
+      "tax": 4875,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2024,
+      "tax": 4559,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2023,
+      "tax": 4283,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2022,
+      "tax": 4172,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2021,
+      "tax": 4093,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2020,
+      "tax": 3980,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2019,
+      "tax": 3854,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2018,
+      "tax": 3778,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2017,
+      "tax": 3687,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2015,
+      "tax": 3463,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2014,
+      "tax": 3383,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2013,
+      "tax": 3321,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2012,
+      "tax": 3216,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2011,
+      "tax": 3128,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2010,
+      "tax": 3063,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    }
+  ],
+  "147": [
+    {
+      "year": 2025,
+      "tax": 4595,
+      "land": 32760,
+      "additions": 89230,
+      "assessed": 121990
+    },
+    {
+      "year": 2024,
+      "tax": 4297,
+      "land": 32760,
+      "additions": 89230,
+      "assessed": 121990
+    },
+    {
+      "year": 2023,
+      "tax": 4036,
+      "land": 32760,
+      "additions": 89230,
+      "assessed": 121990
+    },
+    {
+      "year": 2022,
+      "tax": 3932,
+      "land": 32760,
+      "additions": 89230,
+      "assessed": 121990
+    },
+    {
+      "year": 2021,
+      "tax": 3857,
+      "land": 32760,
+      "additions": 89230,
+      "assessed": 121990
+    },
+    {
+      "year": 2020,
+      "tax": 3751,
+      "land": 32760,
+      "additions": 89230,
+      "assessed": 121990
+    },
+    {
+      "year": 2019,
+      "tax": 3632,
+      "land": 32760,
+      "additions": 89230,
+      "assessed": 121990
+    },
+    {
+      "year": 2018,
+      "tax": 3561,
+      "land": 32760,
+      "additions": 89230,
+      "assessed": 121990
+    },
+    {
+      "year": 2017,
+      "tax": 3475,
+      "land": 32760,
+      "additions": 89230,
+      "assessed": 121990
+    },
+    {
+      "year": 2015,
+      "tax": 3264,
+      "land": 32760,
+      "additions": 89230,
+      "assessed": 121990
+    },
+    {
+      "year": 2014,
+      "tax": 3188,
+      "land": 32760,
+      "additions": 89230,
+      "assessed": 121990
+    },
+    {
+      "year": 2013,
+      "tax": 3130,
+      "land": 32760,
+      "additions": 89230,
+      "assessed": 121990
+    },
+    {
+      "year": 2012,
+      "tax": 3031,
+      "land": 32760,
+      "additions": 89230,
+      "assessed": 121990
+    },
+    {
+      "year": 2011,
+      "tax": 2948,
+      "land": 32760,
+      "additions": 89230,
+      "assessed": 121990
+    },
+    {
+      "year": 2010,
+      "tax": 2887,
+      "land": 32760,
+      "additions": 89230,
+      "assessed": 121990
+    }
+  ],
+  "148": [
+    {
+      "year": 2025,
+      "tax": 4875,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2024,
+      "tax": 4559,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2023,
+      "tax": 4283,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2022,
+      "tax": 4172,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2021,
+      "tax": 4093,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2020,
+      "tax": 3980,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2019,
+      "tax": 3854,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2018,
+      "tax": 3778,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2017,
+      "tax": 3687,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2015,
+      "tax": 3463,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2014,
+      "tax": 3383,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2013,
+      "tax": 3321,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2012,
+      "tax": 3216,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2011,
+      "tax": 3128,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2010,
+      "tax": 3063,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    }
+  ],
+  "149": [
+    {
+      "year": 2025,
+      "tax": 4925,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2024,
+      "tax": 4606,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2023,
+      "tax": 4327,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2022,
+      "tax": 4215,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2021,
+      "tax": 4135,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2020,
+      "tax": 4021,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2019,
+      "tax": 3894,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2018,
+      "tax": 3817,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2017,
+      "tax": 3725,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2015,
+      "tax": 3499,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2014,
+      "tax": 3417,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2013,
+      "tax": 3355,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2012,
+      "tax": 3249,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2011,
+      "tax": 3160,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2010,
+      "tax": 3095,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    }
+  ],
+  "150": [
+    {
+      "year": 2025,
+      "tax": 5083,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2024,
+      "tax": 4754,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2023,
+      "tax": 4466,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2022,
+      "tax": 4350,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2021,
+      "tax": 4268,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2020,
+      "tax": 4150,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2019,
+      "tax": 4019,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2018,
+      "tax": 3939,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2017,
+      "tax": 3845,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2015,
+      "tax": 3611,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2014,
+      "tax": 3527,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2013,
+      "tax": 3463,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2012,
+      "tax": 3353,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2011,
+      "tax": 3262,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2010,
+      "tax": 3194,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    }
+  ],
+  "151": [
+    {
+      "year": 2025,
+      "tax": 5083,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2024,
+      "tax": 4754,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2023,
+      "tax": 4466,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2022,
+      "tax": 4350,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2021,
+      "tax": 4268,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2020,
+      "tax": 4150,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2019,
+      "tax": 4019,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2018,
+      "tax": 3939,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2017,
+      "tax": 3845,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2015,
+      "tax": 3611,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2014,
+      "tax": 3527,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2013,
+      "tax": 3463,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2012,
+      "tax": 3353,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2011,
+      "tax": 3262,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2010,
+      "tax": 3194,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    }
+  ],
+  "152": [
+    {
+      "year": 2025,
+      "tax": 4925,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2024,
+      "tax": 4606,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2023,
+      "tax": 4327,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2022,
+      "tax": 4215,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2021,
+      "tax": 4135,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2020,
+      "tax": 4021,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2019,
+      "tax": 3894,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2018,
+      "tax": 3817,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2017,
+      "tax": 3725,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2015,
+      "tax": 3499,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2014,
+      "tax": 3417,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2013,
+      "tax": 3355,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2012,
+      "tax": 3249,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2011,
+      "tax": 3160,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2010,
+      "tax": 3095,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    }
+  ],
+  "153": [
+    {
+      "year": 2025,
+      "tax": 4875,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2024,
+      "tax": 4559,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2023,
+      "tax": 4283,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2022,
+      "tax": 4172,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2021,
+      "tax": 4093,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2020,
+      "tax": 3980,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2019,
+      "tax": 3854,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2018,
+      "tax": 3778,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2017,
+      "tax": 3687,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2015,
+      "tax": 3463,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2014,
+      "tax": 3383,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2013,
+      "tax": 3321,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2012,
+      "tax": 3216,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2011,
+      "tax": 3128,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2010,
+      "tax": 3063,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    }
+  ],
+  "154": [
+    {
+      "year": 2025,
+      "tax": 4875,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2024,
+      "tax": 4559,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2023,
+      "tax": 4283,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2022,
+      "tax": 4172,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2021,
+      "tax": 4093,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2020,
+      "tax": 3980,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2019,
+      "tax": 3854,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2018,
+      "tax": 3778,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2017,
+      "tax": 3687,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2015,
+      "tax": 3463,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2014,
+      "tax": 3383,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2013,
+      "tax": 3321,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2012,
+      "tax": 3216,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2011,
+      "tax": 3128,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2010,
+      "tax": 3063,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    }
+  ],
+  "155": [
+    {
+      "year": 2025,
+      "tax": 4885,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2024,
+      "tax": 4568,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2023,
+      "tax": 4291,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2022,
+      "tax": 4180,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2021,
+      "tax": 4101,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2020,
+      "tax": 3988,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2019,
+      "tax": 3862,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2018,
+      "tax": 3785,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2017,
+      "tax": 3695,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2015,
+      "tax": 3470,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2014,
+      "tax": 3389,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2013,
+      "tax": 3327,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2012,
+      "tax": 3222,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2011,
+      "tax": 3134,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2010,
+      "tax": 3069,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    }
+  ],
+  "156": [
+    {
+      "year": 2025,
+      "tax": 4875,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2024,
+      "tax": 4559,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2023,
+      "tax": 4283,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2022,
+      "tax": 4172,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2021,
+      "tax": 4093,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2020,
+      "tax": 3980,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2019,
+      "tax": 3854,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2018,
+      "tax": 3778,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2017,
+      "tax": 3687,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2015,
+      "tax": 3463,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2014,
+      "tax": 3383,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2013,
+      "tax": 3321,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2012,
+      "tax": 3216,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2011,
+      "tax": 3128,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2010,
+      "tax": 3063,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    }
+  ],
+  "157": [
+    {
+      "year": 2025,
+      "tax": 4875,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2024,
+      "tax": 4559,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2023,
+      "tax": 4283,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2022,
+      "tax": 4172,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2021,
+      "tax": 4093,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2020,
+      "tax": 3980,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2019,
+      "tax": 3854,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2018,
+      "tax": 3778,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2017,
+      "tax": 3687,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2015,
+      "tax": 3463,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2014,
+      "tax": 3383,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2013,
+      "tax": 3321,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2012,
+      "tax": 3216,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2011,
+      "tax": 3128,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2010,
+      "tax": 3063,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    }
+  ],
+  "158": [
+    {
+      "year": 2025,
+      "tax": 4875,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2024,
+      "tax": 4559,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2023,
+      "tax": 4283,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2022,
+      "tax": 4172,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2021,
+      "tax": 4093,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2020,
+      "tax": 3980,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2019,
+      "tax": 3854,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2018,
+      "tax": 3778,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2017,
+      "tax": 3687,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2015,
+      "tax": 3463,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2014,
+      "tax": 3383,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2013,
+      "tax": 3321,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2012,
+      "tax": 3216,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2011,
+      "tax": 3128,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2010,
+      "tax": 3063,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    }
+  ],
+  "159": [
+    {
+      "year": 2025,
+      "tax": 5083,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2024,
+      "tax": 4754,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2023,
+      "tax": 4466,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2022,
+      "tax": 4350,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2021,
+      "tax": 4268,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2020,
+      "tax": 4150,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2019,
+      "tax": 4019,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2018,
+      "tax": 3939,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2017,
+      "tax": 3845,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2015,
+      "tax": 3611,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2014,
+      "tax": 3527,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2013,
+      "tax": 3463,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2012,
+      "tax": 3353,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2011,
+      "tax": 3262,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2010,
+      "tax": 3194,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    }
+  ],
+  "160": [
+    {
+      "year": 2025,
+      "tax": 5121,
+      "land": 32760,
+      "additions": 103220,
+      "assessed": 135980
+    },
+    {
+      "year": 2024,
+      "tax": 4790,
+      "land": 32760,
+      "additions": 103220,
+      "assessed": 135980
+    },
+    {
+      "year": 2023,
+      "tax": 4499,
+      "land": 32760,
+      "additions": 103220,
+      "assessed": 135980
+    },
+    {
+      "year": 2022,
+      "tax": 4383,
+      "land": 32760,
+      "additions": 103220,
+      "assessed": 135980
+    },
+    {
+      "year": 2021,
+      "tax": 4300,
+      "land": 32760,
+      "additions": 103220,
+      "assessed": 135980
+    },
+    {
+      "year": 2020,
+      "tax": 4181,
+      "land": 32760,
+      "additions": 103220,
+      "assessed": 135980
+    },
+    {
+      "year": 2019,
+      "tax": 4049,
+      "land": 32760,
+      "additions": 103220,
+      "assessed": 135980
+    },
+    {
+      "year": 2018,
+      "tax": 3969,
+      "land": 32760,
+      "additions": 103220,
+      "assessed": 135980
+    },
+    {
+      "year": 2017,
+      "tax": 3874,
+      "land": 32760,
+      "additions": 103220,
+      "assessed": 135980
+    },
+    {
+      "year": 2015,
+      "tax": 3638,
+      "land": 32760,
+      "additions": 103220,
+      "assessed": 135980
+    },
+    {
+      "year": 2014,
+      "tax": 3554,
+      "land": 32760,
+      "additions": 103220,
+      "assessed": 135980
+    },
+    {
+      "year": 2013,
+      "tax": 3489,
+      "land": 32760,
+      "additions": 103220,
+      "assessed": 135980
+    },
+    {
+      "year": 2012,
+      "tax": 3378,
+      "land": 32760,
+      "additions": 103220,
+      "assessed": 135980
+    },
+    {
+      "year": 2011,
+      "tax": 3286,
+      "land": 32760,
+      "additions": 103220,
+      "assessed": 135980
+    },
+    {
+      "year": 2010,
+      "tax": 3218,
+      "land": 32760,
+      "additions": 103220,
+      "assessed": 135980
+    }
+  ],
+  "161": [
+    {
+      "year": 2025,
+      "tax": 4885,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2024,
+      "tax": 4568,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2023,
+      "tax": 4291,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2022,
+      "tax": 4180,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2021,
+      "tax": 4101,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2020,
+      "tax": 3988,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2019,
+      "tax": 3862,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2018,
+      "tax": 3785,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2017,
+      "tax": 3695,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2015,
+      "tax": 3470,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2014,
+      "tax": 3389,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2013,
+      "tax": 3327,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2012,
+      "tax": 3222,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2011,
+      "tax": 3134,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2010,
+      "tax": 3069,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    }
+  ],
+  "162": [
+    {
+      "year": 2025,
+      "tax": 4925,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2024,
+      "tax": 4606,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2023,
+      "tax": 4327,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2022,
+      "tax": 4215,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2021,
+      "tax": 4135,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2020,
+      "tax": 4021,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2019,
+      "tax": 3894,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2018,
+      "tax": 3817,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2017,
+      "tax": 3725,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2015,
+      "tax": 3499,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2014,
+      "tax": 3417,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2013,
+      "tax": 3355,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2012,
+      "tax": 3249,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2011,
+      "tax": 3160,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2010,
+      "tax": 3095,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    }
+  ],
+  "163": [
+    {
+      "year": 2025,
+      "tax": 4885,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2024,
+      "tax": 4568,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2023,
+      "tax": 4291,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2022,
+      "tax": 4180,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2021,
+      "tax": 4101,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2020,
+      "tax": 3988,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2019,
+      "tax": 3862,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2018,
+      "tax": 3785,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2017,
+      "tax": 3695,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2015,
+      "tax": 3470,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2014,
+      "tax": 3389,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2013,
+      "tax": 3327,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2012,
+      "tax": 3222,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2011,
+      "tax": 3134,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    },
+    {
+      "year": 2010,
+      "tax": 3069,
+      "land": 32030,
+      "additions": 97660,
+      "assessed": 129690
+    }
+  ],
+  "164": [
+    {
+      "year": 2025,
+      "tax": 4925,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2024,
+      "tax": 4606,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2023,
+      "tax": 4327,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2022,
+      "tax": 4215,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2021,
+      "tax": 4135,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2020,
+      "tax": 4021,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2019,
+      "tax": 3894,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2018,
+      "tax": 3817,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2017,
+      "tax": 3725,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2015,
+      "tax": 3499,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2014,
+      "tax": 3417,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2013,
+      "tax": 3355,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2012,
+      "tax": 3249,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2011,
+      "tax": 3160,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2010,
+      "tax": 3095,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    }
+  ],
+  "165": [
+    {
+      "year": 2025,
+      "tax": 4925,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2024,
+      "tax": 4606,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2023,
+      "tax": 4327,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2022,
+      "tax": 4215,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2021,
+      "tax": 4135,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2020,
+      "tax": 4021,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2019,
+      "tax": 3894,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2018,
+      "tax": 3817,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2017,
+      "tax": 3725,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2015,
+      "tax": 3499,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2014,
+      "tax": 3417,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2013,
+      "tax": 3355,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2012,
+      "tax": 3249,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2011,
+      "tax": 3160,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2010,
+      "tax": 3095,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    }
+  ],
+  "166": [
+    {
+      "year": 2025,
+      "tax": 4875,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2024,
+      "tax": 4559,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2023,
+      "tax": 4283,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2022,
+      "tax": 4172,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2021,
+      "tax": 4093,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2020,
+      "tax": 3980,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2019,
+      "tax": 3854,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2018,
+      "tax": 3778,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2017,
+      "tax": 3687,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2015,
+      "tax": 3463,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2014,
+      "tax": 3383,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2013,
+      "tax": 3321,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2012,
+      "tax": 3216,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2011,
+      "tax": 3128,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2010,
+      "tax": 3063,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    }
+  ],
+  "167": [
+    {
+      "year": 2025,
+      "tax": 4925,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2024,
+      "tax": 4606,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2023,
+      "tax": 4327,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2022,
+      "tax": 4215,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2021,
+      "tax": 4135,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2020,
+      "tax": 4021,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2019,
+      "tax": 3894,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2018,
+      "tax": 3817,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2017,
+      "tax": 3725,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2015,
+      "tax": 3499,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2014,
+      "tax": 3417,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2013,
+      "tax": 3355,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2012,
+      "tax": 3249,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2011,
+      "tax": 3160,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    },
+    {
+      "year": 2010,
+      "tax": 3095,
+      "land": 32760,
+      "additions": 98010,
+      "assessed": 130770
+    }
+  ],
+  "168": [
+    {
+      "year": 2025,
+      "tax": 4875,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2024,
+      "tax": 4559,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2023,
+      "tax": 4283,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2022,
+      "tax": 4172,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2021,
+      "tax": 4093,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2020,
+      "tax": 3980,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2019,
+      "tax": 3854,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2018,
+      "tax": 3778,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2017,
+      "tax": 3687,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2015,
+      "tax": 3463,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2014,
+      "tax": 3383,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2013,
+      "tax": 3321,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2012,
+      "tax": 3216,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2011,
+      "tax": 3128,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    },
+    {
+      "year": 2010,
+      "tax": 3063,
+      "land": 32030,
+      "additions": 97410,
+      "assessed": 129440
+    }
+  ],
+  "169": [
+    {
+      "year": 2025,
+      "tax": 4913,
+      "land": 32760,
+      "additions": 97690,
+      "assessed": 130450
+    },
+    {
+      "year": 2024,
+      "tax": 4595,
+      "land": 32760,
+      "additions": 97690,
+      "assessed": 130450
+    },
+    {
+      "year": 2023,
+      "tax": 4316,
+      "land": 32760,
+      "additions": 97690,
+      "assessed": 130450
+    },
+    {
+      "year": 2022,
+      "tax": 4205,
+      "land": 32760,
+      "additions": 97690,
+      "assessed": 130450
+    },
+    {
+      "year": 2021,
+      "tax": 4125,
+      "land": 32760,
+      "additions": 97690,
+      "assessed": 130450
+    },
+    {
+      "year": 2020,
+      "tax": 4011,
+      "land": 32760,
+      "additions": 97690,
+      "assessed": 130450
+    },
+    {
+      "year": 2019,
+      "tax": 3884,
+      "land": 32760,
+      "additions": 97690,
+      "assessed": 130450
+    },
+    {
+      "year": 2018,
+      "tax": 3807,
+      "land": 32760,
+      "additions": 97690,
+      "assessed": 130450
+    },
+    {
+      "year": 2017,
+      "tax": 3716,
+      "land": 32760,
+      "additions": 97690,
+      "assessed": 130450
+    },
+    {
+      "year": 2015,
+      "tax": 3490,
+      "land": 32760,
+      "additions": 97690,
+      "assessed": 130450
+    },
+    {
+      "year": 2014,
+      "tax": 3409,
+      "land": 32760,
+      "additions": 97690,
+      "assessed": 130450
+    },
+    {
+      "year": 2013,
+      "tax": 3347,
+      "land": 32760,
+      "additions": 97690,
+      "assessed": 130450
+    },
+    {
+      "year": 2012,
+      "tax": 3241,
+      "land": 32760,
+      "additions": 97690,
+      "assessed": 130450
+    },
+    {
+      "year": 2011,
+      "tax": 3152,
+      "land": 32760,
+      "additions": 97690,
+      "assessed": 130450
+    },
+    {
+      "year": 2010,
+      "tax": 3087,
+      "land": 32760,
+      "additions": 97690,
+      "assessed": 130450
+    }
+  ],
+  "170": [
+    {
+      "year": 2025,
+      "tax": 5083,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2024,
+      "tax": 4754,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2023,
+      "tax": 4466,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2022,
+      "tax": 4350,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2021,
+      "tax": 4268,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2020,
+      "tax": 4150,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2019,
+      "tax": 4019,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2018,
+      "tax": 3939,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2017,
+      "tax": 3845,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2015,
+      "tax": 3611,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2014,
+      "tax": 3527,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2013,
+      "tax": 3463,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2012,
+      "tax": 3353,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2011,
+      "tax": 3262,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    },
+    {
+      "year": 2010,
+      "tax": 3194,
+      "land": 32030,
+      "additions": 102940,
+      "assessed": 134970
+    }
+  ]
+}

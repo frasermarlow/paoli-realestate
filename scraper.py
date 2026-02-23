@@ -139,9 +139,15 @@ def scrape_redfin(url: str) -> float | None:
     if not soup:
         return None
 
-    # Redfin estimate selectors
+    # Primary: regex for "Redfin Estimate" text (most reliable)
+    estimate_pattern = re.compile(r"Redfin Estimate[^$]*\$([0-9,]+)", re.IGNORECASE)
+    match = estimate_pattern.search(soup.get_text())
+    if match:
+        return _parse_price(match.group(1))
+
+    # Fallback selectors (avoid div[class*="redfin-estimate"] span[class*="value"]
+    # which incorrectly matches nearby comp sale prices)
     for selector in [
-        'div[class*="redfin-estimate"] span[class*="value"]',
         'div[data-rf-test-id="avmLdpPrice"]',
         'span[class*="EstimatePrice"]',
     ]:
@@ -150,12 +156,6 @@ def scrape_redfin(url: str) -> float | None:
             price = _parse_price(el.get_text())
             if price:
                 return price
-
-    # Fallback: search for "Redfin Estimate" text
-    estimate_pattern = re.compile(r"Redfin Estimate[^$]*\$([0-9,]+)", re.IGNORECASE)
-    match = estimate_pattern.search(soup.get_text())
-    if match:
-        return _parse_price(match.group(1))
 
     logger.warning("Could not find Redfin estimate on page: %s", url)
     return None

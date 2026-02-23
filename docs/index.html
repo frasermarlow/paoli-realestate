@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Woodgate Development — Price Dashboard</title>
+  <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f5f5f5; color: #333; }
+    header { background: #1a1a2e; color: #fff; padding: 1.5rem 2rem; }
+    header h1 { font-size: 1.5rem; font-weight: 600; }
+    header p { color: #aaa; font-size: 0.85rem; margin-top: 0.25rem; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 1.5rem; }
+    .chart-card { background: #fff; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); padding: 1.5rem; margin-bottom: 1.5rem; }
+    .chart-card h2 { font-size: 1.1rem; margin-bottom: 1rem; color: #1a1a2e; }
+    #sales-chart, #estimates-chart, #tax-chart { width: 100%; height: 450px; }
+    .stats { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+    .stat { background: #fff; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); padding: 1rem 1.5rem; flex: 1; min-width: 150px; }
+    .stat .label { font-size: 0.75rem; color: #888; text-transform: uppercase; letter-spacing: 0.05em; }
+    .stat .value { font-size: 1.4rem; font-weight: 700; color: #1a1a2e; margin-top: 0.25rem; }
+    .error { color: #c00; text-align: center; padding: 2rem; }
+
+    .analysis-note { margin-top: 1.25rem; border: 1px solid #e2e8f0; border-radius: 6px; padding: 0 1rem; font-size: 0.85rem; color: #444; line-height: 1.55; }
+    .analysis-note summary { cursor: pointer; padding: 0.75rem 0; font-weight: 600; color: #1a1a2e; font-size: 0.9rem; }
+    .analysis-note p { margin: 0.5rem 0; }
+    .analysis-note table { width: 100%; border-collapse: collapse; margin: 0.75rem 0; font-size: 0.82rem; }
+    .analysis-note th, .analysis-note td { text-align: left; padding: 0.4rem 0.75rem; border-bottom: 1px solid #e2e8f0; }
+    .analysis-note th { background: #f8fafc; font-weight: 600; color: #1a1a2e; }
+    .analysis-note details[open] { padding-bottom: 0.75rem; }
+
+    .sort-btn { padding: 0.3rem 0.7rem; border: 1px solid #d1d5db; border-radius: 4px; background: #fff; cursor: pointer; font-size: 0.8rem; color: #555; }
+    .sort-btn:hover { background: #f0f0f0; }
+    .sort-btn.active { background: #1a1a2e; color: #fff; border-color: #1a1a2e; }
+
+    .filter-bar { background: #fff; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); padding: 1rem 1.5rem; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; }
+    .filter-bar label { font-size: 0.85rem; font-weight: 600; color: #1a1a2e; white-space: nowrap; }
+    .filter-bar input { flex: 1; min-width: 200px; padding: 0.5rem 0.75rem; border: 1px solid #d1d5db; border-radius: 6px; font-size: 0.9rem; outline: none; }
+    .filter-bar input:focus { border-color: #3b82f6; box-shadow: 0 0 0 2px rgba(59,130,246,0.15); }
+    .filter-bar .hint { font-size: 0.75rem; color: #888; }
+    .filter-bar button { padding: 0.5rem 1rem; border: 1px solid #d1d5db; border-radius: 6px; background: #fff; cursor: pointer; font-size: 0.8rem; color: #555; }
+    .filter-bar button:hover { background: #f0f0f0; }
+    .filter-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+    .filter-tag { display: inline-flex; align-items: center; gap: 0.3rem; background: #e0e7ff; color: #3730a3; border-radius: 4px; padding: 0.2rem 0.5rem; font-size: 0.8rem; font-weight: 500; }
+    .filter-tag .remove { cursor: pointer; font-size: 0.9rem; line-height: 1; opacity: 0.6; }
+    .filter-tag .remove:hover { opacity: 1; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Woodgate Development — Price Dashboard</h1>
+    <p id="subtitle">111–170 Woodgate Lane, Paoli, PA 19301</p>
+  </header>
+  <div class="container">
+    <div class="stats" id="stats"></div>
+    <div class="filter-bar">
+      <label for="unit-filter">Filter Units</label>
+      <input type="text" id="unit-filter" placeholder="e.g. 111, 130-135, 150" autocomplete="off">
+      <div class="filter-tags" id="filter-tags"></div>
+      <button id="clear-filter">Clear</button>
+      <span class="hint">Comma-separated units or ranges. Press Enter to apply.</span>
+    </div>
+    <div class="chart-card">
+      <h2>Sales History (1978–Present)</h2>
+      <div id="sales-chart"></div>
+    </div>
+    <div class="chart-card">
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;margin-bottom:1rem">
+        <h2 style="margin-bottom:0">Current Estimates by Unit <span id="estimates-date" style="font-size:0.75rem;font-weight:400;color:#888"></span></h2>
+        <div style="display:flex;align-items:center;gap:0.4rem">
+          <span style="font-size:0.8rem;color:#888">Sort:</span>
+          <button class="sort-btn active" id="sort-unit" onclick="setEstimateSort('unit')">Unit #</button>
+          <button class="sort-btn" id="sort-value" onclick="setEstimateSort('value')">Avg Value</button>
+        </div>
+      </div>
+      <div id="estimates-chart"></div>
+      <details class="analysis-note">
+        <summary>Analysis: How do Zillow and Redfin estimates compare?</summary>
+        <p>Both Zillow (Zestimate) and Redfin produce individualized estimates for all 60 units. Across the development:</p>
+        <table>
+          <thead><tr><th>Source</th><th>Range</th><th>Distinct Values</th></tr></thead>
+          <tbody>
+            <tr><td>Zillow</td><td>$385K &ndash; $547K</td><td>57 of 60</td></tr>
+            <tr><td>Redfin</td><td>$391K &ndash; $514K</td><td>60 of 60</td></tr>
+          </tbody>
+        </table>
+        <p>The average spread between the two sources is <strong>7.8%</strong>, with most units showing agreement within 5&ndash;10%. Zillow tends to estimate higher than Redfin across the development, with Zestimates running roughly $30K&ndash;$50K above Redfin's figures on average.</p>
+        <p>The largest divergences (&gt;15%) tend to occur on units with fewer recent comparable sales in the immediate area, where the two models' differing approaches to valuation&mdash;Zillow's heavier weighting of tax assessments and listing data vs. Redfin's reliance on MLS transaction history&mdash;produce wider gaps.</p>
+      </details>
+    </div>
+    <div class="chart-card">
+      <h2>Property Taxes by Unit <span id="tax-date" style="font-size:0.75rem;font-weight:400;color:#888"></span></h2>
+      <div id="tax-chart"></div>
+      <p style="font-size:0.75rem;color:#888;margin-top:0.5rem">Units 115 and 137 had no tax data on Redfin.</p>
+    </div>
+  </div>
+  <script>
+    const fmt = n => '$' + n.toLocaleString('en-US');
+
+    let _data = null;
+    let _selectedUnits = null; // null = show all
+    let _estimateSort = 'unit'; // 'unit' or 'value'
+
+    function setEstimateSort(mode) {
+      _estimateSort = mode;
+      document.getElementById('sort-unit').classList.toggle('active', mode === 'unit');
+      document.getElementById('sort-value').classList.toggle('active', mode === 'value');
+      if (_data) renderEstimatesChart(_data);
+    }
+
+    fetch('data.json')
+      .then(r => { if (!r.ok) throw new Error('Failed to load data.json'); return r.json(); })
+      .then(data => { _data = data; renderAll(); })
+      .catch(err => {
+        document.getElementById('stats').innerHTML = `<p class="error">Error: ${err.message}. Run <code>python3 export_data.py</code> first.</p>`;
+      });
+
+    // --- Filter logic ---
+
+    function parseUnitInput(text) {
+      if (!text.trim()) return null;
+      const units = new Set();
+      text.split(',').forEach(part => {
+        part = part.trim();
+        const rangeMatch = part.match(/^(\d+)\s*-\s*(\d+)$/);
+        if (rangeMatch) {
+          const lo = parseInt(rangeMatch[1]), hi = parseInt(rangeMatch[2]);
+          for (let i = Math.min(lo, hi); i <= Math.max(lo, hi); i++) units.add(i);
+        } else {
+          const n = parseInt(part);
+          if (!isNaN(n)) units.add(n);
+        }
+      });
+      return units.size > 0 ? units : null;
+    }
+
+    function applyFilter() {
+      const input = document.getElementById('unit-filter');
+      _selectedUnits = parseUnitInput(input.value);
+      renderTags();
+      renderAll();
+    }
+
+    function renderTags() {
+      const container = document.getElementById('filter-tags');
+      if (!_selectedUnits) { container.innerHTML = ''; return; }
+      // Collapse consecutive units into ranges for display
+      const sorted = [..._selectedUnits].sort((a, b) => a - b);
+      const ranges = [];
+      let start = sorted[0], end = sorted[0];
+      for (let i = 1; i < sorted.length; i++) {
+        if (sorted[i] === end + 1) { end = sorted[i]; }
+        else { ranges.push(start === end ? `${start}` : `${start}-${end}`); start = end = sorted[i]; }
+      }
+      ranges.push(start === end ? `${start}` : `${start}-${end}`);
+      container.innerHTML = ranges.map(r =>
+        `<span class="filter-tag">${r}<span class="remove" data-range="${r}">&times;</span></span>`
+      ).join('');
+    }
+
+    document.getElementById('unit-filter').addEventListener('keydown', e => {
+      if (e.key === 'Enter') applyFilter();
+    });
+
+    document.getElementById('clear-filter').addEventListener('click', () => {
+      document.getElementById('unit-filter').value = '';
+      _selectedUnits = null;
+      renderTags();
+      renderAll();
+    });
+
+    document.getElementById('filter-tags').addEventListener('click', e => {
+      if (e.target.classList.contains('remove') && _selectedUnits) {
+        const rangeStr = e.target.dataset.range;
+        // Remove these units from selection
+        const toRemove = parseUnitInput(rangeStr);
+        if (toRemove) toRemove.forEach(u => _selectedUnits.delete(u));
+        if (_selectedUnits.size === 0) _selectedUnits = null;
+        // Update input text to match
+        if (_selectedUnits) {
+          const sorted = [..._selectedUnits].sort((a, b) => a - b);
+          document.getElementById('unit-filter').value = sorted.join(', ');
+        } else {
+          document.getElementById('unit-filter').value = '';
+        }
+        renderTags();
+        renderAll();
+      }
+    });
+
+    // --- Rendering ---
+
+    function renderAll() {
+      if (!_data) return;
+      renderStats(_data);
+      renderSalesChart(_data);
+      renderEstimatesChart(_data);
+      renderTaxChart(_data);
+    }
+
+    function filterSales(sales) {
+      if (!_selectedUnits) return sales;
+      return sales.filter(s => _selectedUnits.has(s.unit));
+    }
+
+    function filterProperties(properties) {
+      if (!_selectedUnits) return properties;
+      return properties.filter(p => _selectedUnits.has(p.unit));
+    }
+
+    function renderStats(data) {
+      const props = filterProperties(data.properties);
+      const sales = filterSales(data.sales);
+      const zEstimates = props.filter(p => p.zillow).map(p => p.zillow);
+      const rEstimates = props.filter(p => p.redfin).map(p => p.redfin);
+      const avgZ = zEstimates.length ? zEstimates.reduce((a, b) => a + b, 0) / zEstimates.length : 0;
+      const avgR = rEstimates.length ? rEstimates.reduce((a, b) => a + b, 0) / rEstimates.length : 0;
+      const hoaSales = sales.filter(s => s.source === 'hoa');
+      const redfinSales = sales.filter(s => s.source === 'redfin');
+      const latestSale = sales.length ? sales[sales.length - 1] : null;
+      const filterNote = _selectedUnits ? ` <span style="font-size:0.7rem;font-weight:400;color:#888">(filtered)</span>` : '';
+
+      document.getElementById('stats').innerHTML = `
+        <div class="stat"><div class="label">Units${_selectedUnits ? ' Shown' : ' Tracked'}</div><div class="value">${props.length}${filterNote}</div></div>
+        <div class="stat"><div class="label">Avg Zillow Estimate</div><div class="value">${zEstimates.length ? fmt(Math.round(avgZ)) : 'N/A'}</div></div>
+        <div class="stat"><div class="label">Avg Redfin Estimate</div><div class="value">${rEstimates.length ? fmt(Math.round(avgR)) : 'N/A'}</div></div>
+        <div class="stat"><div class="label">Total Sales</div><div class="value">${sales.length} <span style="font-size:0.7rem;font-weight:400;color:#888">(${hoaSales.length} HOA + ${redfinSales.length} Redfin)</span></div></div>
+        <div class="stat"><div class="label">Last Sale</div><div class="value">${latestSale ? latestSale.date : 'N/A'}</div></div>
+      `;
+
+      document.getElementById('subtitle').textContent =
+        `111–170 Woodgate Lane, Paoli, PA · Data exported ${data.exported_at.slice(0, 10)}`;
+    }
+
+    function renderSalesChart(data) {
+      const sales = filterSales(data.sales);
+
+      // Group sales by unit, sorted by date within each unit
+      const byUnit = {};
+      sales.forEach(s => { (byUnit[s.unit] = byUnit[s.unit] || []).push(s); });
+      Object.values(byUnit).forEach(arr => arr.sort((a, b) => a.date.localeCompare(b.date)));
+
+      // One line trace per unit (connecting its sales chronologically)
+      const unitNums = Object.keys(byUnit).map(Number).sort((a, b) => a - b);
+      const lineTraces = unitNums.map(unit => {
+        const us = byUnit[unit];
+        return {
+          x: us.map(s => s.date),
+          y: us.map(s => s.price),
+          mode: 'lines',
+          line: { color: '#cbd5e1', width: 1 },
+          showlegend: false,
+          hoverinfo: 'skip',
+        };
+      });
+
+      // Marker traces by source (drawn on top of lines)
+      const hoaSales = sales.filter(s => s.source === 'hoa');
+      const redfinSales = sales.filter(s => s.source === 'redfin');
+
+      const hoaTrace = {
+        x: hoaSales.map(s => s.date),
+        y: hoaSales.map(s => s.price),
+        text: hoaSales.map(s => `Unit ${s.unit}<br>${s.date}<br>${fmt(s.price)}<br>Source: HOA`),
+        mode: 'markers',
+        type: 'scatter',
+        marker: { color: '#3b82f6', size: 7, opacity: 0.85 },
+        hoverinfo: 'text',
+        name: 'HOA Records',
+      };
+
+      const redfinTrace = {
+        x: redfinSales.map(s => s.date),
+        y: redfinSales.map(s => s.price),
+        text: redfinSales.map(s => `Unit ${s.unit}<br>${s.date}<br>${fmt(s.price)}<br>Source: Redfin`),
+        mode: 'markers',
+        type: 'scatter',
+        marker: { color: '#f59e0b', size: 6, opacity: 0.7, symbol: 'diamond' },
+        hoverinfo: 'text',
+        name: 'Redfin Public Records',
+      };
+
+      const traces = [...lineTraces, hoaTrace, redfinTrace];
+
+      // Trend line (only if we have at least 2 sales)
+      if (sales.length >= 2) {
+        const allDates = sales.map(s => new Date(s.date).getTime());
+        const allPrices = sales.map(s => s.price);
+        const n = allDates.length;
+        const sumX = allDates.reduce((a, b) => a + b, 0);
+        const sumY = allPrices.reduce((a, b) => a + b, 0);
+        const sumXY = allDates.reduce((a, x, i) => a + x * allPrices[i], 0);
+        const sumX2 = allDates.reduce((a, x) => a + x * x, 0);
+        const denom = n * sumX2 - sumX * sumX;
+        if (denom !== 0) {
+          const slope = (n * sumXY - sumX * sumY) / denom;
+          const intercept = (sumY - slope * sumX) / n;
+          const trendX = [sales[0].date, sales[sales.length - 1].date];
+          const trendY = trendX.map(d => slope * new Date(d).getTime() + intercept);
+          traces.push({
+            x: trendX, y: trendY,
+            mode: 'lines',
+            line: { color: '#ef4444', width: 2, dash: 'dash' },
+            name: 'Trend',
+            hoverinfo: 'skip',
+          });
+        }
+      }
+
+      Plotly.newPlot('sales-chart', traces, {
+        xaxis: { title: 'Date' },
+        yaxis: { title: 'Sale Price', tickprefix: '$', tickformat: ',.0f' },
+        margin: { t: 20, r: 30 },
+        legend: { x: 0, y: 1 },
+        hovermode: 'closest',
+      }, { responsive: true });
+    }
+
+    function renderEstimatesChart(data) {
+      let props = filterProperties(data.properties).slice(); // copy so we can sort
+      const latestDate = props.reduce((max, p) => p.estimate_date && p.estimate_date > max ? p.estimate_date : max, '');
+      document.getElementById('estimates-date').textContent = latestDate ? `— as of ${latestDate}` : '';
+
+      if (_estimateSort === 'value') {
+        props.sort((a, b) => {
+          const avgA = [a.zillow, a.redfin].filter(v => v != null);
+          const avgB = [b.zillow, b.redfin].filter(v => v != null);
+          const valA = avgA.length ? avgA.reduce((x, y) => x + y, 0) / avgA.length : 0;
+          const valB = avgB.length ? avgB.reduce((x, y) => x + y, 0) / avgB.length : 0;
+          return valA - valB;
+        });
+      }
+
+      const units = props.map(p => p.unit.toString());
+      const lows = props.map(p => Math.min(p.zillow || Infinity, p.redfin || Infinity));
+      const highs = props.map(p => Math.max(p.zillow || 0, p.redfin || 0));
+      const avgs = props.map(p => {
+        const vals = [p.zillow, p.redfin].filter(v => v != null);
+        return vals.length ? vals.reduce((a, b) => a + b, 0) / vals.length : null;
+      });
+
+      // Vertical lines from low to high (wicks)
+      const wickTraces = [];
+      units.forEach((u, i) => {
+        if (lows[i] !== Infinity && highs[i] !== 0) {
+          wickTraces.push({
+            x: [u, u], y: [lows[i], highs[i]],
+            mode: 'lines',
+            line: { color: '#64748b', width: 1.5 },
+            showlegend: false,
+            hoverinfo: 'skip',
+          });
+        }
+      });
+
+      const lowTrace = {
+        x: units,
+        y: lows.map(v => v === Infinity ? null : v),
+        mode: 'markers',
+        marker: { color: '#ef4444', size: 8, symbol: 'line-ew-open', line: { width: 2 } },
+        name: 'Low',
+        text: props.map(p => {
+          const lo = Math.min(p.zillow || Infinity, p.redfin || Infinity);
+          const src = (p.zillow != null && p.zillow === lo) ? 'Zillow' : 'Redfin';
+          return `Unit ${p.unit}<br>Low: ${fmt(lo)} (${src})`;
+        }),
+        hoverinfo: 'text',
+      };
+
+      const highTrace = {
+        x: units,
+        y: highs.map(v => v === 0 ? null : v),
+        mode: 'markers',
+        marker: { color: '#3b82f6', size: 8, symbol: 'line-ew-open', line: { width: 2 } },
+        name: 'High',
+        text: props.map(p => {
+          const hi = Math.max(p.zillow || 0, p.redfin || 0);
+          const src = (p.zillow != null && p.zillow === hi) ? 'Zillow' : 'Redfin';
+          return `Unit ${p.unit}<br>High: ${fmt(hi)} (${src})`;
+        }),
+        hoverinfo: 'text',
+      };
+
+      const avgTrace = {
+        x: units,
+        y: avgs,
+        mode: 'markers',
+        marker: { color: '#1a1a2e', size: 10, symbol: 'diamond' },
+        name: 'Average',
+        text: props.map((p, i) => {
+          const parts = [`Unit ${p.unit}`];
+          if (p.zillow != null) parts.push(`Zillow: ${fmt(p.zillow)}`);
+          if (p.redfin != null) parts.push(`Redfin: ${fmt(p.redfin)}`);
+          if (avgs[i] != null) parts.push(`Avg: ${fmt(Math.round(avgs[i]))}`);
+          return parts.join('<br>');
+        }),
+        hoverinfo: 'text',
+      };
+
+      Plotly.newPlot('estimates-chart', [...wickTraces, lowTrace, highTrace, avgTrace], {
+        xaxis: { title: 'Unit Number', type: 'category', dtick: 1 },
+        yaxis: { title: 'Estimated Value', tickprefix: '$', tickformat: ',.0f' },
+        margin: { t: 20, r: 30 },
+        legend: { x: 0, y: 1 },
+        hovermode: 'closest',
+      }, { responsive: true });
+    }
+
+    function renderTaxChart(data) {
+      const taxes = data.taxes || {};
+      // Get all years across all units, sorted
+      const allYears = new Set();
+      Object.values(taxes).forEach(records => records.forEach(r => allYears.add(r.year)));
+      const years = [...allYears].sort((a, b) => a - b);
+      if (years.length === 0) return;
+
+      const latestYear = years[years.length - 1];
+      document.getElementById('tax-date').textContent = `— ${years[0]}–${latestYear} from Redfin/public records`;
+
+      // Determine which units to show
+      const unitNums = Object.keys(taxes).map(Number).sort((a, b) => a - b);
+      const filteredUnits = _selectedUnits
+        ? unitNums.filter(u => _selectedUnits.has(u))
+        : unitNums;
+
+      if (filteredUnits.length === 0) return;
+
+      const traces = [];
+
+      if (filteredUnits.length <= 10) {
+        // Few units: show individual lines per unit
+        filteredUnits.forEach(unit => {
+          const records = taxes[unit.toString()] || [];
+          const sorted = records.slice().sort((a, b) => a.year - b.year);
+          traces.push({
+            x: sorted.map(r => r.year.toString()),
+            y: sorted.map(r => r.tax),
+            mode: 'lines+markers',
+            name: `Unit ${unit}`,
+            marker: { size: 5 },
+            text: sorted.map(r => {
+              const parts = [`Unit ${unit}`, `${r.year}: ${fmt(r.tax)}`];
+              if (r.assessed) parts.push(`Assessed: ${fmt(r.assessed)}`);
+              return parts.join('<br>');
+            }),
+            hoverinfo: 'text',
+          });
+        });
+      } else {
+        // Many units: show min/max/avg band
+        const yearStats = years.map(yr => {
+          const vals = filteredUnits
+            .map(u => (taxes[u.toString()] || []).find(r => r.year === yr))
+            .filter(r => r)
+            .map(r => r.tax);
+          if (vals.length === 0) return null;
+          return {
+            year: yr,
+            min: Math.min(...vals),
+            max: Math.max(...vals),
+            avg: Math.round(vals.reduce((a, b) => a + b, 0) / vals.length),
+            count: vals.length,
+          };
+        }).filter(s => s);
+
+        // Shaded range band (min to max)
+        traces.push({
+          x: yearStats.map(s => s.year.toString()),
+          y: yearStats.map(s => s.max),
+          mode: 'lines',
+          line: { width: 0 },
+          showlegend: false,
+          hoverinfo: 'skip',
+        });
+        traces.push({
+          x: yearStats.map(s => s.year.toString()),
+          y: yearStats.map(s => s.min),
+          mode: 'lines',
+          line: { width: 0 },
+          fill: 'tonexty',
+          fillcolor: 'rgba(59,130,246,0.12)',
+          showlegend: false,
+          hoverinfo: 'skip',
+        });
+
+        // Min line
+        traces.push({
+          x: yearStats.map(s => s.year.toString()),
+          y: yearStats.map(s => s.min),
+          mode: 'lines',
+          line: { color: '#93c5fd', width: 1, dash: 'dot' },
+          name: 'Min',
+          text: yearStats.map(s => `${s.year}<br>Min: ${fmt(s.min)}`),
+          hoverinfo: 'text',
+        });
+
+        // Max line
+        traces.push({
+          x: yearStats.map(s => s.year.toString()),
+          y: yearStats.map(s => s.max),
+          mode: 'lines',
+          line: { color: '#93c5fd', width: 1, dash: 'dot' },
+          name: 'Max',
+          text: yearStats.map(s => `${s.year}<br>Max: ${fmt(s.max)}`),
+          hoverinfo: 'text',
+        });
+
+        // Average line
+        traces.push({
+          x: yearStats.map(s => s.year.toString()),
+          y: yearStats.map(s => s.avg),
+          mode: 'lines+markers',
+          line: { color: '#3b82f6', width: 2.5 },
+          marker: { size: 6 },
+          name: `Avg (${filteredUnits.length} units)`,
+          text: yearStats.map(s => `${s.year}<br>Avg: ${fmt(s.avg)}<br>Range: ${fmt(s.min)} – ${fmt(s.max)}<br>${s.count} units`),
+          hoverinfo: 'text',
+        });
+      }
+
+      Plotly.newPlot('tax-chart', traces, {
+        xaxis: { title: 'Year', type: 'category' },
+        yaxis: { title: 'Annual Property Tax', tickprefix: '$', tickformat: ',.0f' },
+        margin: { t: 20, r: 30 },
+        legend: { x: 0, y: 1 },
+        hovermode: 'closest',
+      }, { responsive: true });
+    }
+  </script>
+</body>
+</html>

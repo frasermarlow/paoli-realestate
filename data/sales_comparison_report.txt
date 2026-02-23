@@ -1,0 +1,189 @@
+======================================================================
+WOODGATE SALES COMPARISON REPORT
+======================================================================
+
+HOA records: 123 sales
+Redfin records: 246 sales
+Zillow records: 0 sales
+
+Exact matches: 77
+Date mismatches (same sale, different date): 38
+New sales (online but not in HOA): 119
+Missing online (in HOA but not found): 8
+
+----------------------------------------------------------------------
+MISMATCHES (date and/or price differ)
+----------------------------------------------------------------------
+  Unit 113 | $  493,000 | date: HOA 2023-12-14 vs Redfin 2023-12-19 | price: HOA $493,000 vs Redfin $492,500
+  Unit 115 | $  312,000 | date: HOA 2018-08-03 vs Redfin 2018-08-01
+  Unit 118 | $  245,000 | date: HOA 2014-09-04 vs Redfin 2014-08-28
+  Unit 120 | $  146,108 | date: HOA 2000-09-21 vs Redfin 2000-08-30
+  Unit 120 | $  256,000 | date: HOA 2008-10-09 vs Redfin 2008-09-23
+  Unit 122 | $  273,000 | date: HOA 2008-04-16 vs Redfin 2008-04-28
+  Unit 124 | $  320,000 | date: HOA 2017-07-12 vs Redfin 2017-07-13
+  Unit 124 | $  480,000 | date: HOA 2024-01-29 vs Redfin 2024-02-29
+  Unit 126 | $  141,200 | date: HOA 2000-08-02 vs Redfin 2000-06-16
+  Unit 126 | $  280,000 | date: HOA 2014-11-14 vs Redfin 2014-11-10
+  Unit 129 | $  258,000 | date: HOA 2002-08-22 vs Redfin 2002-08-15
+  Unit 130 | $  285,000 | date: HOA 2015-12-15 vs Redfin 2016-01-05
+  Unit 131 | $  313,500 | date: HOA 2006-09-11 vs Redfin 2006-08-25
+  Unit 131 | $  398,500 | date: HOA 2021-06-14 vs Redfin 2021-06-04
+  Unit 132 | $  275,000 | date: HOA 2015-04-07 vs Redfin 2015-04-08
+  Unit 132 | $  325,000 | date: HOA 2019-04-30 vs Redfin 2019-05-14
+  Unit 136 | $  400,000 | date: HOA 2023-07-11 vs Redfin 2023-08-14
+  Unit 137 | $  330,000 | date: HOA 2015-12-21 vs Redfin 2015-12-15
+  Unit 140 | $  340,000 | date: HOA 2018-08-07 vs Redfin 2018-08-03
+  Unit 142 | $  143,000 | date: HOA 1999-09-14 vs Redfin 1999-09-10
+  Unit 142 | $  328,427 | date: HOA 2018-06-05 vs Redfin 2018-06-27
+  Unit 143 | $  340,000 | date: HOA 2019-06-20 vs Redfin 2019-06-25
+  Unit 147 | $  193,500 | date: HOA 2003-05-15 vs Redfin 2003-06-03
+  Unit 147 | $  407,000 | date: HOA 2021-10-15 vs Redfin 2021-10-21
+  Unit 148 | $  430,000 | date: HOA 2024-05-06 vs Redfin 2024-05-07
+  Unit 149 | $  415,000 | date: HOA 2025-08-11 vs Redfin 2025-08-12
+  Unit 152 | $  289,000 | date: HOA 2012-10-03 vs Redfin 2012-09-07
+  Unit 153 | $  137,000 | date: HOA 1997-08-22 vs Redfin 1997-08-25
+  Unit 153 | $  364,500 | date: HOA 2020-12-18 vs Redfin 2020-12-23
+  Unit 155 | $  140,000 | date: HOA 1994-01-01 vs Redfin 1994-02-07
+  Unit 156 | $  155,250 | price: HOA $155,250 vs Redfin $155,253
+  Unit 156 | $  268,000 | date: HOA 2008-06-11 vs Redfin 2008-05-30
+  Unit 164 | $  250,000 | date: HOA 2004-07-30 vs Redfin 2004-07-08
+  Unit 166 | $  145,000 | date: HOA 1999-09-02 vs Redfin 1999-09-01
+  Unit 166 | $  400,000 | date: HOA 2020-11-20 vs Redfin 2020-11-25
+  Unit 167 | $  286,000 | date: HOA 2008-08-22 vs Redfin 2008-07-30
+  Unit 168 | $  354,000 | date: HOA 2019-10-23 vs Redfin 2019-12-09
+  Unit 169 | $  310,000 | date: HOA 2019-03-25 vs Redfin 2019-03-20
+
+----------------------------------------------------------------------
+NEW SALES (found online, not in HOA records)
+----------------------------------------------------------------------
+  Unit 111 | 1978-06-01 | $   65,880 | Redfin
+  Unit 111 | 1982-11-01 | $  100,000 | Redfin
+  Unit 111 | 2015-02-17 | $  275,000 | Redfin
+  Unit 111 | 2019-09-16 | $  340,000 | Redfin
+  Unit 112 | 1978-12-01 | $   67,199 | Redfin
+  Unit 112 | 1985-07-01 | $   98,500 | Redfin
+  Unit 112 | 1989-02-01 | $  146,000 | Redfin
+  Unit 112 | 1998-05-08 | $  137,000 | Redfin
+  Unit 112 | 2011-04-15 | $  235,000 | Redfin
+  Unit 113 | 1978-12-01 | $   72,000 | Redfin
+  Unit 113 | 2023-12-14 | $  492,500 | Redfin
+  Unit 114 | 1978-09-01 | $   63,780 | Redfin
+  Unit 116 | 1978-07-01 | $   61,880 | Redfin
+  Unit 116 | 1986-06-01 | $  105,000 | Redfin
+  Unit 117 | 1987-12-01 | $  115,000 | Redfin
+  Unit 117 | 1992-11-20 | $  128,000 | Redfin
+  Unit 118 | 1987-12-01 | $  134,500 | Redfin
+  Unit 118 | 2017-07-17 | $  290,000 | Redfin
+  Unit 118 | 2017-09-20 | $  290,000 | Redfin
+  Unit 119 | 1978-06-01 | $   62,380 | Redfin
+  Unit 119 | 1980-12-01 | $   93,000 | Redfin
+  Unit 119 | 2023-07-10 | $  380,000 | Redfin
+  Unit 120 | 1978-07-01 | $   58,880 | Redfin
+  Unit 120 | 1986-11-01 | $  111,500 | Redfin
+  Unit 121 | 1978-05-01 | $   60,880 | Redfin
+  Unit 122 | 1978-04-01 | $   58,880 | Redfin
+  Unit 122 | 1988-01-01 | $  130,000 | Redfin
+  Unit 123 | 1993-08-30 | $  141,000 | Redfin
+  Unit 124 | 1978-05-01 | $   63,880 | Redfin
+  Unit 124 | 1981-10-01 | $  115,000 | Redfin
+  Unit 124 | 1984-04-01 | $  105,000 | Redfin
+  Unit 124 | 2001-03-20 | $  135,000 | Redfin
+  Unit 125 | 1978-06-01 | $   60,880 | Redfin
+  Unit 126 | 1978-05-01 | $   58,880 | Redfin
+  Unit 126 | 1986-07-01 | $  100,000 | Redfin
+  Unit 127 | 1986-07-01 | $   97,500 | Redfin
+  Unit 128 | 1978-08-01 | $   61,880 | Redfin
+  Unit 129 | 1978-05-01 | $   58,880 | Redfin
+  Unit 129 | 1982-04-01 | $  115,000 | Redfin
+  Unit 129 | 1988-08-01 | $  152,500 | Redfin
+  Unit 130 | 1978-10-01 | $   61,880 | Redfin
+  Unit 131 | 1978-07-01 | $   58,000 | Redfin
+  Unit 131 | 1986-08-01 | $  110,000 | Redfin
+  Unit 132 | 1978-08-01 | $   61,880 | Redfin
+  Unit 132 | 1985-03-01 | $  102,000 | Redfin
+  Unit 132 | 1985-10-01 | $  103,000 | Redfin
+  Unit 133 | 1978-06-01 | $   58,880 | Redfin
+  Unit 133 | 1986-06-01 | $  101,000 | Redfin
+  Unit 133 | 1991-07-16 | $  135,500 | Redfin
+  Unit 134 | 1978-06-01 | $   58,880 | Redfin
+  Unit 134 | 1992-11-13 | $  131,500 | Redfin
+  Unit 135 | 1978-06-01 | $   58,880 | Redfin
+  Unit 136 | 1978-06-01 | $   61,880 | Redfin
+  Unit 136 | 2023-07-11 | $  400,000 | Redfin
+  Unit 138 | 1978-09-01 | $   66,880 | Redfin
+  Unit 138 | 1987-06-01 | $   83,333 | Redfin
+  Unit 139 | 1978-09-01 | $   58,880 | Redfin
+  Unit 139 | 1986-09-01 | $  110,500 | Redfin
+  Unit 139 | 1990-03-01 | $  151,500 | Redfin
+  Unit 140 | 1978-09-01 | $   58,880 | Redfin
+  Unit 140 | 1986-08-01 | $  112,500 | Redfin
+  Unit 141 | 1978-08-01 | $   63,880 | Redfin
+  Unit 141 | 1987-06-01 | $   80,000 | Redfin
+  Unit 141 | 1987-06-01 | $  120,000 | Redfin
+  Unit 142 | 1978-08-01 | $   61,880 | Redfin
+  Unit 142 | 1986-01-01 | $  109,000 | Redfin
+  Unit 142 | 1993-04-20 | $  135,000 | Redfin
+  Unit 143 | 1978-09-01 | $   63,880 | Redfin
+  Unit 143 | 1980-10-01 | $   93,100 | Redfin
+  Unit 143 | 1991-05-01 | $  141,500 | Redfin
+  Unit 143 | 2019-06-20 | $  340,000 | Redfin
+  Unit 144 | 1978-09-01 | $   61,880 | Redfin
+  Unit 145 | 1978-10-01 | $   57,880 | Redfin
+  Unit 145 | 1986-12-01 | $  103,000 | Redfin
+  Unit 146 | 1978-09-01 | $   54,880 | Redfin
+  Unit 147 | 1978-10-01 | $   54,880 | Redfin
+  Unit 147 | 1981-05-01 | $   90,000 | Redfin
+  Unit 147 | 2021-10-29 | $  417,000 | Redfin
+  Unit 148 | 1978-10-01 | $   57,880 | Redfin
+  Unit 148 | 1984-08-01 | $  100,500 | Redfin
+  Unit 150 | 1978-10-01 | $   60,880 | Redfin
+  Unit 150 | 1982-11-01 | $  100,000 | Redfin
+  Unit 150 | 1990-08-29 | $  137,500 | Redfin
+  Unit 150 | 1992-04-15 | $  132,000 | Redfin
+  Unit 151 | 1978-10-01 | $   68,865 | Redfin
+  Unit 152 | 1978-11-01 | $   61,880 | Redfin
+  Unit 153 | 1978-11-01 | $   63,880 | Redfin
+  Unit 155 | 1978-11-01 | $   67,880 | Redfin
+  Unit 155 | 1979-11-01 | $   90,000 | Redfin
+  Unit 155 | 1988-05-01 | $  100,000 | Redfin
+  Unit 156 | 1978-10-01 | $   69,880 | Redfin
+  Unit 156 | 1988-05-01 | $  149,000 | Redfin
+  Unit 157 | 1978-12-01 | $   70,380 | Redfin
+  Unit 157 | 1986-05-01 | $  108,000 | Redfin
+  Unit 157 | 1991-10-08 | $  140,000 | Redfin
+  Unit 158 | 1978-11-01 | $   67,880 | Redfin
+  Unit 158 | 1993-06-30 | $  141,000 | Redfin
+  Unit 159 | 1978-12-01 | $   68,880 | Redfin
+  Unit 159 | 1985-08-01 | $  120,000 | Redfin
+  Unit 160 | 1978-09-01 | $   63,880 | Redfin
+  Unit 160 | 1987-01-01 | $  115,500 | Redfin
+  Unit 162 | 1978-08-01 | $   61,880 | Redfin
+  Unit 162 | 1991-11-25 | $  130,250 | Redfin
+  Unit 163 | 1978-08-01 | $   63,880 | Redfin
+  Unit 163 | 1981-06-01 | $   94,000 | Redfin
+  Unit 164 | 1978-09-01 | $   61,880 | Redfin
+  Unit 164 | 1983-12-01 | $   93,000 | Redfin
+  Unit 164 | 1984-05-01 | $   92,000 | Redfin
+  Unit 165 | 1978-08-01 | $   58,880 | Redfin
+  Unit 166 | 1978-10-01 | $   61,880 | Redfin
+  Unit 166 | 1988-07-01 | $  157,000 | Redfin
+  Unit 166 | 1990-06-19 | $  149,000 | Redfin
+  Unit 167 | 1978-08-01 | $   58,880 | Redfin
+  Unit 167 | 1982-01-01 | $  115,000 | Redfin
+  Unit 167 | 1983-02-01 | $  100,000 | Redfin
+  Unit 168 | 1978-11-01 | $   39,253 | Redfin
+  Unit 168 | 1983-01-01 | $   97,500 | Redfin
+  Unit 169 | 1978-08-01 | $   61,880 | Redfin
+  Unit 170 | 2025-02-20 | $  350,000 | Redfin
+
+----------------------------------------------------------------------
+MISSING ONLINE (in HOA but not found on Redfin/Zillow)
+----------------------------------------------------------------------
+  Unit 115 | 2015-06-25 | $  276,500
+  Unit 128 | 2022-09-12 | $  451,000
+  Unit 130 | 2011-04-20 | $  235,000
+  Unit 137 | 2001-09-18 | $  185,000
+  Unit 137 | 2005-08-18 | $  320,000
+  Unit 154 | 2006-03-20 | $  290,000
+  Unit 154 | 2021-06-30 | $  420,000
+  Unit 167 | 2019-06-03 | $  336,000
