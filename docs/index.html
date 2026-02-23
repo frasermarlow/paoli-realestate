@@ -95,8 +95,8 @@
         <h2 style="margin-bottom:0">Current Estimates by Unit <span id="estimates-date" style="font-size:0.75rem;font-weight:400;color:#888"></span></h2>
         <div style="display:flex;align-items:center;gap:0.4rem">
           <span style="font-size:0.8rem;color:#888">Sort:</span>
-          <button class="sort-btn active" id="sort-unit" onclick="setEstimateSort('unit')">Unit #</button>
-          <button class="sort-btn" id="sort-value" onclick="setEstimateSort('value')">Avg Value</button>
+          <button class="sort-btn" id="sort-unit" onclick="setEstimateSort('unit')">Unit #</button>
+          <button class="sort-btn active" id="sort-value" onclick="setEstimateSort('value')">Avg Value</button>
         </div>
       </div>
       <div id="estimates-chart"></div>
@@ -139,7 +139,7 @@
 
     let _data = null;
     let _selectedUnits = null; // null = show all
-    let _estimateSort = 'unit'; // 'unit' or 'value'
+    let _estimateSort = 'value'; // 'unit' or 'value'
 
     function setEstimateSort(mode) {
       _estimateSort = mode;
@@ -974,13 +974,14 @@
         type: 'bar',
         orientation: 'h',
         marker: { color: colors },
-        text: results.map(r =>
+        hovertext: results.map(r =>
           `Unit ${r.unit}<br>` +
           `Last sale: ${r.date}<br>` +
           `Price: ${fmt(r.price)}<br>` +
           `${r.days.toLocaleString()} days (${r.years} years)`
         ),
         hoverinfo: 'text',
+        textposition: 'none',
       }], {
         xaxis: { title: 'Days Since Last Sale' },
         yaxis: { type: 'category', autorange: 'reversed', dtick: 1 },
