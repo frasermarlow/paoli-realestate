@@ -1,0 +1,11 @@
+beautifulsoup4>=4.12
+requests>=2.31
+lxml>=5.0
+selenium>=4.15
+sqlalchemy>=2.0
+pandas>=2.1
+numpy>=1.26
+matplotlib>=3.8
+plotly>=5.18
+APScheduler>=3.10
+python-dotenv>=1.0
