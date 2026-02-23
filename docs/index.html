@@ -78,6 +78,17 @@
     <div class="chart-card">
       <h2>Sales Volume by Year</h2>
       <div id="volume-chart"></div>
+      <p style="font-size:0.75rem;color:#888;margin-top:0.5rem">* 53 original sales in 1978 are excluded from this chart but included in the rest of the dataset.</p>
+      <details class="analysis-note">
+        <summary>Why did 14 units sell in 1986?</summary>
+        <p>The <strong>Tax Reform Act of 1986</strong> (signed October 1986) eliminated the preferential capital gains tax rate. Before 1987, long-term gains were taxed at a maximum of ~20%; after the reform, they were taxed as ordinary income at up to 28%.</p>
+        <p>Owners who had held since the original 1978 sales had significant gains and a strong incentive to sell before year-end to lock in the lower rate &mdash; which explains the cluster of 3 sales in December 1986 alone. The Act also eliminated the ability to use rental property losses to offset other income (passive loss rules), making investor-owned units less attractive to hold.</p>
+        <p style="font-size:0.7rem;color:#888">Sources:
+          <a href="https://taxfoundation.org/research/all/federal/1980s-tax-reform-cost-recovery-and-the-real-estate-industry-lessons-for-today/" target="_blank">Tax Foundation</a> &middot;
+          <a href="https://en.wikipedia.org/wiki/Tax_Reform_Act_of_1986" target="_blank">Wikipedia</a> &middot;
+          <a href="https://www.bostonfed.org/-/media/Documents/conference/36/conf36g.pdf" target="_blank">Boston Fed</a>
+        </p>
+      </details>
     </div>
     <div class="chart-card">
       <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;margin-bottom:1rem">
@@ -656,16 +667,23 @@
         const year = s.date.slice(0, 4);
         byYear[year] = (byYear[year] || 0) + 1;
       });
-      const years = Object.keys(byYear).sort();
-      if (years.length === 0) return;
+      // Skip 1978 (53 original sales) — distorts the Y axis
+      delete byYear['1978'];
+      // Build continuous year range from first non-1978 sale across ALL data to present
+      const allYears = data.sales.map(s => Number(s.date.slice(0, 4))).filter(y => y > 1978);
+      if (allYears.length === 0) return;
+      const minYear = Math.min(...allYears);
+      const maxYear = new Date().getFullYear();
+      const years = [];
+      for (let y = minYear; y <= maxYear; y++) years.push(String(y));
 
       const trace = {
         x: years,
-        y: years.map(y => byYear[y]),
+        y: years.map(y => byYear[y] || 0),
         type: 'bar',
         name: 'Sales',
         marker: { color: '#3b82f6' },
-        text: years.map(y => `${y}<br>${byYear[y]} sale${byYear[y] !== 1 ? 's' : ''}`),
+        text: years.map(y => { const n = byYear[y] || 0; return `${y}<br>${n} sale${n !== 1 ? 's' : ''}`; }),
         hoverinfo: 'text',
       };
 
