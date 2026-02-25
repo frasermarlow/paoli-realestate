@@ -1,8 +1,8 @@
 """Lightweight CI script to update Redfin estimates in docs/data.json.
 
 Bypasses the database entirely — reads properties.csv for URLs,
-scrapes Redfin pages with requests + BeautifulSoup, and patches
-docs/data.json in place.
+fetches Redfin estimates via their internal stingray API (with HTML
+scraping as fallback), and patches docs/data.json in place.
 """
 from __future__ import annotations
 
@@ -31,7 +31,7 @@ PROPERTIES_CSV = os.path.join(BASE_DIR, "properties.csv")
 DATA_JSON = os.path.join(BASE_DIR, "docs", "data.json")
 
 
-# --- Scraping helpers (copied from scraper.py to avoid undetected_chromedriver import) ---
+# --- Scraping helpers ---
 
 def _get_headers():
     return {
@@ -43,13 +43,93 @@ def _get_headers():
     }
 
 
+def _get_api_headers(referer_url):
+    """Headers for Redfin stingray API requests."""
+    return {
+        "User-Agent": random.choice(USER_AGENTS),
+        "Accept": "*/*",
+        "Accept-Language": "en-US,en;q=0.9",
+        "Accept-Encoding": "gzip, deflate, br",
+        "Referer": referer_url,
+        "Connection": "keep-alive",
+    }
+
+
+def _extract_property_id(redfin_url):
+    """Extract the numeric property ID from a Redfin URL like .../home/38879483."""
+    match = re.search(r"/home/(\d+)", redfin_url)
+    return match.group(1) if match else None
+
+
+def _parse_api_response(text):
+    """Parse Redfin stingray API response (prefixed with '{}&&')."""
+    prefix = "{}&&"
+    if text.startswith(prefix):
+        text = text[len(prefix):]
+    return json.loads(text)
+
+
+def _scrape_redfin_api(redfin_url):
+    """Try to get the Redfin estimate via the internal stingray API."""
+    property_id = _extract_property_id(redfin_url)
+    if not property_id:
+        print("  API: Could not extract property ID from URL")
+        return None
+
+    api_url = (
+        f"https://www.redfin.com/stingray/api/home/details/avm"
+        f"?propertyId={property_id}&accessLevel=1"
+    )
+
+    try:
+        resp = requests.get(
+            api_url,
+            headers=_get_api_headers(redfin_url),
+            timeout=15,
+        )
+        resp.raise_for_status()
+        data = _parse_api_response(resp.text)
+
+        # Navigate the response to find the estimate value
+        payload = data.get("payload", {})
+
+        # Try predictedValue (most common location)
+        predicted = payload.get("predictedValue")
+        if predicted:
+            return float(predicted)
+
+        # Try nested avm structure
+        avm = payload.get("avm", {})
+        for key in ("value", "amount", "predictedValue"):
+            val = avm.get(key)
+            if val:
+                return float(val)
+
+        # Try sectionPreviewText which sometimes has the price
+        preview = payload.get("sectionPreviewText", "")
+        if preview:
+            price_match = re.search(r"\$([0-9,]+)", preview)
+            if price_match:
+                return float(price_match.group(1).replace(",", ""))
+
+        print(f"  API: Got response but couldn't find estimate in payload")
+        return None
+
+    except requests.RequestException as e:
+        print(f"  API ERROR: {e}")
+        return None
+    except (json.JSONDecodeError, ValueError, KeyError) as e:
+        print(f"  API PARSE ERROR: {e}")
+        return None
+
+
 def _fetch_page(url):
     try:
         resp = requests.get(url, headers=_get_headers(), timeout=15)
         resp.raise_for_status()
         return BeautifulSoup(resp.text, "lxml")
     except requests.RequestException as e:
-        print(f"  FETCH ERROR: {e}")
+        print(f"  HTML FETCH ERROR: {e}")
         return None
 
 
@@ -69,7 +149,8 @@ def _parse_price(text):
     return None
 
 
-def scrape_redfin(url):
+def _scrape_redfin_html(url):
+    """Fallback: scrape the Redfin estimate from the HTML page."""
     soup = _fetch_page(url)
     if not soup:
         return None
@@ -90,6 +171,26 @@ def scrape_redfin(url):
                 return price
 
     return None
+
+
+def scrape_redfin(url):
+    """Get Redfin estimate: try API first, fall back to HTML scraping.
+
+    Returns (price, method) where method is 'api', 'html', or None.
+    """
+    # Try the stingray API first (works better from cloud/CI environments)
+    price = _scrape_redfin_api(url)
+    if price:
+        print("  (via API)")
+        return price, "api"
+
+    # Fall back to HTML scraping
+    price = _scrape_redfin_html(url)
+    if price:
+        print("  (via HTML)")
+        return price, "html"
+
+    return None, None
 
 
 # --- Main logic ---
@@ -132,18 +233,24 @@ def main():
     today = date.today().isoformat()
     successes = 0
     failures = 0
+    api_successes = 0
+    html_successes = 0
 
     for i, prop in enumerate(props):
         unit = prop["unit"]
         print(f"[{i+1}/{len(props)}] Unit {unit}: {prop['redfin_url']}")
 
-        price = scrape_redfin(prop["redfin_url"])
+        price, method = scrape_redfin(prop["redfin_url"])
         if price:
             print(f"  -> ${price:,.0f}")
             if unit in prop_map:
                 prop_map[unit]["redfin"] = price
                 prop_map[unit]["estimate_date"] = today
             successes += 1
+            if method == "api":
+                api_successes += 1
+            else:
+                html_successes += 1
         else:
             print("  -> FAILED")
             failures += 1
@@ -157,7 +264,8 @@ def main():
 
     save_data_json(data)
 
-    print(f"\nDone: {successes} successes, {failures} failures out of {len(props)}")
+    print(f"\nDone: {successes} successes ({api_successes} API, {html_successes} HTML), "
+          f"{failures} failures out of {len(props)}")
 
     # Exit with error if more than half failed (likely blocked)
     if len(props) > 0 and failures > len(props) / 2:
