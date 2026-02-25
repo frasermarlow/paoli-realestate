@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Woodgate Development — Price Dashboard</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
   <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -46,6 +47,17 @@
     .filter-tag .remove:hover { opacity: 1; }
     .section-title { font-size: 1.2rem; font-weight: 700; color: #1a1a2e; margin: 2rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #e2e8f0; }
     .section-title:first-of-type { margin-top: 0.5rem; }
+
+    @media (max-width: 768px) {
+      .container { padding: 0.75rem 0; }
+      .chart-card, .filter-bar, .stat { border-radius: 0; box-shadow: none; border-bottom: 1px solid #e2e8f0; }
+      .chart-card { padding: 1rem 0.75rem; margin-bottom: 0; }
+      .filter-bar { padding: 0.75rem; }
+      .stats { gap: 0; }
+      .stat { padding: 0.75rem; }
+      header { padding: 1rem; }
+      .section-title { margin-left: 0.75rem; margin-right: 0.75rem; }
+    }
   </style>
 </head>
 <body>
