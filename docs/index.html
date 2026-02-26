@@ -48,6 +48,18 @@
     .section-title { font-size: 1.2rem; font-weight: 700; color: #1a1a2e; margin: 2rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #e2e8f0; }
     .section-title:first-of-type { margin-top: 0.5rem; }
 
+    footer { background: #1a1a2e; color: #ccc; padding: 2rem; margin-top: 2rem; }
+    footer .container { padding: 0; }
+    footer h3 { color: #fff; font-size: 1rem; margin-bottom: 1rem; }
+    .changelog { list-style: none; font-size: 0.82rem; line-height: 1.7; }
+    .changelog li { padding: 0.4rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); display: flex; gap: 1rem; flex-wrap: wrap; }
+    .changelog .cl-date { color: #7c8db5; font-weight: 600; min-width: 6rem; }
+    .changelog .cl-detail { color: #aaa; }
+    .changelog .cl-tag { display: inline-block; padding: 0.1rem 0.4rem; border-radius: 3px; font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.03em; margin-right: 0.4rem; }
+    .changelog .cl-tag.update { background: #1e3a5f; color: #60a5fa; }
+    .changelog .cl-tag.sale { background: #14532d; color: #4ade80; }
+    .changelog .cl-new-sales { color: #4ade80; font-weight: 600; }
+
     @media (max-width: 768px) {
       .container { padding: 0.75rem 0; }
       .chart-card, .filter-bar, .stat { border-radius: 0; box-shadow: none; border-bottom: 1px solid #e2e8f0; }
@@ -146,6 +158,12 @@
       <div id="tax-trend-chart"></div>
     </div>
   </div>
+  <footer>
+    <div class="container">
+      <h3>Changelog</h3>
+      <ul class="changelog" id="changelog"></ul>
+    </div>
+  </footer>
   <script>
     const fmt = n => '$' + n.toLocaleString('en-US');
 
@@ -254,6 +272,7 @@
       renderTaxTrendChart(_data);
       renderAppreciationChart(_data);
       renderDaysSinceSaleChart(_data);
+      renderChangelog(_data);
     }
 
     function filterSales(sales) {
@@ -1000,6 +1019,28 @@
         margin: { t: 20, r: 30, l: 80 },
         hovermode: 'closest',
       }, { responsive: true });
+    }
+
+    function renderChangelog(data) {
+      const log = (data.changelog || []).slice().reverse(); // newest first
+      const el = document.getElementById('changelog');
+      if (log.length === 0) {
+        el.innerHTML = '<li style="color:#666">No changelog entries yet.</li>';
+        return;
+      }
+      el.innerHTML = log.map(entry => {
+        const parts = [];
+        if (entry.type === 'redfin_update') {
+          parts.push('<span class="cl-tag update">Estimates</span>');
+          parts.push(`Redfin estimates updated: ${entry.redfin_updated} of ${entry.redfin_updated + entry.redfin_failed}`);
+          if (entry.avg_redfin) parts.push(`&middot; Avg Redfin: ${fmt(entry.avg_redfin)}`);
+          if (entry.redfin_failed > 0) parts.push(`&middot; ${entry.redfin_failed} failed`);
+        }
+        if (entry.new_sales > 0) {
+          parts.push(`<span class="cl-tag sale">Sales</span><span class="cl-new-sales">${entry.new_sales} new sale${entry.new_sales > 1 ? 's' : ''} recorded</span>`);
+        }
+        return `<li><span class="cl-date">${entry.date}</span><span class="cl-detail">${parts.join(' ')}</span></li>`;
+      }).join('');
     }
   </script>
 </body>

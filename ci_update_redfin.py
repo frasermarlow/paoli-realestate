@@ -259,6 +259,29 @@ def main():
         if i < len(props) - 1:
             time.sleep(random.uniform(1.0, 2.0))
 
+    # Compute stats for changelog
+    redfin_vals = [p["redfin"] for p in prop_map.values() if p.get("redfin")]
+    avg_redfin = round(sum(redfin_vals) / len(redfin_vals)) if redfin_vals else 0
+
+    # Count new sales since last changelog entry
+    changelog = data.get("changelog", [])
+    prev_sales_count = changelog[-1]["total_sales"] if changelog else len(data.get("sales", []))
+    current_sales_count = len(data.get("sales", []))
+    new_sales = current_sales_count - prev_sales_count
+
+    # Append changelog entry
+    entry = {
+        "date": today,
+        "type": "redfin_update",
+        "redfin_updated": successes,
+        "redfin_failed": failures,
+        "avg_redfin": avg_redfin,
+        "new_sales": max(new_sales, 0),
+        "total_sales": current_sales_count,
+    }
+    changelog.append(entry)
+    data["changelog"] = changelog
+
     # Update exported_at timestamp
     data["exported_at"] = f"{today}T00:00:00Z"
 
