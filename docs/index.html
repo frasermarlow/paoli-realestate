@@ -60,6 +60,16 @@
     .changelog .cl-tag.sale { background: #14532d; color: #4ade80; }
     .changelog .cl-new-sales { color: #4ade80; font-weight: 600; }
 
+    .alert-banner { background: #fef3c7; border-bottom: 2px solid #f59e0b; padding: 0.75rem 2rem; }
+    .alert-banner .container { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0; }
+    .alert-banner .alert-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 0.1rem; }
+    .alert-banner .alert-content { flex: 1; }
+    .alert-banner .alert-title { font-weight: 700; color: #92400e; font-size: 0.9rem; margin-bottom: 0.25rem; }
+    .alert-banner .alert-list { list-style: none; font-size: 0.82rem; color: #78350f; line-height: 1.6; }
+    .alert-banner .alert-unit { font-weight: 600; }
+    .alert-banner .alert-dismiss { background: none; border: 1px solid #d97706; border-radius: 4px; color: #92400e; cursor: pointer; padding: 0.25rem 0.6rem; font-size: 0.75rem; flex-shrink: 0; margin-top: 0.1rem; }
+    .alert-banner .alert-dismiss:hover { background: #fde68a; }
+
     @media (max-width: 768px) {
       .container { padding: 0.75rem 0; }
       .chart-card, .filter-bar, .stat { border-radius: 0; box-shadow: none; border-bottom: 1px solid #e2e8f0; }
@@ -77,6 +87,7 @@
     <h1>Woodgate Development — Price Dashboard</h1>
     <p id="subtitle">111–170 Woodgate Lane, Paoli, PA 19301</p>
   </header>
+  <div class="alert-banner" id="zillow-alert-banner" style="display:none"></div>
   <div class="container">
     <div class="stats" id="stats"></div>
     <div class="filter-bar">
@@ -262,6 +273,7 @@
 
     function renderAll() {
       if (!_data) return;
+      renderAlerts(_data);
       renderStats(_data);
       renderSalesChart(_data);
       renderEstimatesChart(_data);
@@ -273,6 +285,30 @@
       renderAppreciationChart(_data);
       renderDaysSinceSaleChart(_data);
       renderChangelog(_data);
+    }
+
+    function renderAlerts(data) {
+      const banner = document.getElementById('zillow-alert-banner');
+      const alerts = data.zillow_alerts || [];
+      if (alerts.length === 0) {
+        banner.style.display = 'none';
+        return;
+      }
+      const items = alerts.map(a =>
+        `<li><span class="alert-unit">Unit ${a.unit}</span> — sold ${a.sale_date} for ${fmt(a.sale_price)}` +
+        (a.zillow_date ? ` (Zillow last collected ${a.zillow_date})` : ' (no Zillow data)') +
+        `</li>`
+      ).join('');
+      banner.style.display = 'block';
+      banner.innerHTML = `
+        <div class="container" style="max-width:1200px;margin:0 auto">
+          <span class="alert-icon">&#9888;</span>
+          <div class="alert-content">
+            <div class="alert-title">Zillow data collection needed</div>
+            <ul class="alert-list">${items}</ul>
+          </div>
+          <button class="alert-dismiss" onclick="document.getElementById('zillow-alert-banner').style.display='none'">Dismiss</button>
+        </div>`;
     }
 
     function filterSales(sales) {
