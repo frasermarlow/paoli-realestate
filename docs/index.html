@@ -855,10 +855,20 @@
         return vals.length > 0 ? vals.reduce((a, b) => a + b, 0) / vals.length : null;
       });
 
+      // Annual average CPI-U (BLS, via Minneapolis Fed)
+      const cpiByYear = {
+        2009: 214.5, 2010: 218.1, 2011: 224.9, 2012: 229.6, 2013: 233.0,
+        2014: 236.7, 2015: 237.0, 2016: 240.0, 2017: 245.1, 2018: 251.1,
+        2019: 255.7, 2020: 258.8, 2021: 271.0, 2022: 292.7, 2023: 304.7,
+        2024: 313.7, 2025: 321.9,
+      };
+
       const yoyYears = [];
       const yoyPct = [];
       const yoyColors = [];
       const cumPct = [];
+      const cpiCumPct = [];
+      const baseCpi = cpiByYear[years[0]];
 
       for (let i = 1; i < years.length; i++) {
         if (avgByYear[i] == null || avgByYear[i - 1] == null) continue;
@@ -868,6 +878,12 @@
         yoyColors.push(change >= 0 ? '#ef4444' : '#22c55e');
         const cumulative = ((avgByYear[i] - avgByYear[0]) / avgByYear[0]) * 100;
         cumPct.push(parseFloat(cumulative.toFixed(1)));
+        const cpi = cpiByYear[years[i]];
+        if (cpi && baseCpi) {
+          cpiCumPct.push(parseFloat((((cpi - baseCpi) / baseCpi) * 100).toFixed(1)));
+        } else {
+          cpiCumPct.push(null);
+        }
       }
 
       const barTrace = {
@@ -891,13 +907,26 @@
         mode: 'lines+markers',
         line: { color: '#1a1a2e', width: 2.5 },
         marker: { size: 6 },
-        name: 'Cumulative Growth',
+        name: 'Cumulative Tax Growth',
         yaxis: 'y2',
         text: cumPct.map(v => `Cumulative: ${v >= 0 ? '+' : ''}${v}% since ${years[0]}`),
         hoverinfo: 'text',
       };
 
-      Plotly.newPlot('tax-trend-chart', [barTrace, lineTrace], {
+      const cpiTrace = {
+        x: yoyYears,
+        y: cpiCumPct,
+        type: 'scatter',
+        mode: 'lines+markers',
+        line: { color: '#f59e0b', width: 2, dash: 'dash' },
+        marker: { size: 5, symbol: 'diamond' },
+        name: 'Cumulative CPI (Inflation)',
+        yaxis: 'y2',
+        text: cpiCumPct.map(v => v != null ? `CPI: +${v}% since ${years[0]}` : ''),
+        hoverinfo: 'text',
+      };
+
+      Plotly.newPlot('tax-trend-chart', [barTrace, lineTrace, cpiTrace], {
         xaxis: { title: 'Year', type: 'category' },
         yaxis: { title: 'YoY Change (%)', ticksuffix: '%', zeroline: true, zerolinecolor: '#ccc', zerolinewidth: 1 },
         yaxis2: { title: 'Cumulative Growth (%)', ticksuffix: '%', overlaying: 'y', side: 'right' },
