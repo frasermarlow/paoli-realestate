@@ -193,6 +193,100 @@ def scrape_redfin(url):
     return None, None
 
 
+def _scrape_redfin_sales(url):
+    """Scrape recent sale history from a Redfin property page.
+
+    Returns a list of {"date": "YYYY-MM-DD", "price": int} dicts for Sold events,
+    or an empty list if none found / page unavailable.
+    """
+    from datetime import datetime as _dt
+
+    soup = _fetch_page(url)
+    if not soup:
+        return []
+
+    sales = []
+
+    # Approach 1: structured table rows (various Redfin layouts)
+    for row in soup.select(".BasicTable__row, [data-rf-test-id='sale-history'] tr, tr"):
+        cells = row.select("td, th")
+        row_text = " ".join(c.get_text(" ", strip=True) for c in cells)
+        if "sold" not in row_text.lower():
+            continue
+        date_match = re.search(r"(\w{3}\s+\d{1,2},\s+\d{4}|\d{1,2}/\d{1,2}/\d{4})", row_text)
+        price_match = re.search(r"\$([0-9,]+)", row_text)
+        if not (date_match and price_match):
+            continue
+        raw_date = date_match.group(1)
+        for fmt in ("%b %d, %Y", "%m/%d/%Y"):
+            try:
+                sale_date = _dt.strptime(raw_date, fmt).strftime("%Y-%m-%d")
+                break
+            except ValueError:
+                sale_date = None
+        if sale_date:
+            price = int(price_match.group(1).replace(",", ""))
+            if price > 10000:
+                sales.append({"date": sale_date, "price": price})
+
+    if sales:
+        return sales
+
+    # Approach 2: regex over full page text
+    text = soup.get_text(" ")
+    for m in re.finditer(
+        r"(\d{1,2}/\d{1,2}/\d{4})\s+Sold\s+\$([0-9,]+)",
+        text,
+        re.IGNORECASE,
+    ):
+        try:
+            sale_date = _dt.strptime(m.group(1), "%m/%d/%Y").strftime("%Y-%m-%d")
+            price = int(m.group(2).replace(",", ""))
+            if price > 10000:
+                sales.append({"date": sale_date, "price": price})
+        except ValueError:
+            pass
+
+    return sales
+
+
+def detect_new_sales(props, existing_sales):
+    """Scrape Redfin sale history for each property and return sales not in existing_sales.
+
+    existing_sales: list of {"unit": int, "date": str, "price": int, ...}
+    Returns list of new {"unit": int, "date": str, "price": int, "source": "redfin"}.
+    """
+    # Build a set of (unit, date, price) for fast lookup; also allow price within $1000
+    known = {}
+    for s in existing_sales:
+        known.setdefault(s["unit"], []).append(s)
+
+    def _is_known(unit, date, price):
+        for s in known.get(unit, []):
+            if s["date"] == date and abs(s["price"] - price) <= 1000:
+                return True
+        return False
+
+    new_sales = []
+    for i, prop in enumerate(props):
+        unit = prop["unit"]
+        print(f"  [sales check {i+1}/{len(props)}] Unit {unit}")
+        scraped = _scrape_redfin_sales(prop["redfin_url"])
+        for s in scraped:
+            if not _is_known(unit, s["date"], s["price"]):
+                print(f"    NEW SALE: Unit {unit} on {s['date']} for ${s['price']:,}")
+                new_sales.append({
+                    "unit": unit,
+                    "date": s["date"],
+                    "price": s["price"],
+                    "source": "redfin",
+                })
+        if i < len(props) - 1:
+            time.sleep(random.uniform(1.0, 2.0))
+
+    return new_sales
+
+
 # --- Main logic ---
 
 def load_properties():
@@ -259,15 +353,22 @@ def main():
         if i < len(props) - 1:
             time.sleep(random.uniform(1.0, 2.0))
 
+    # Check Redfin property pages for new sales not already in data.json
+    print("\nChecking for new sales on Redfin...")
+    discovered = detect_new_sales(props, data.get("sales", []))
+    if discovered:
+        print(f"Found {len(discovered)} new sale(s) — adding to data.json")
+        data["sales"] = data.get("sales", []) + discovered
+        data["sales"].sort(key=lambda s: (s["date"], s["unit"]))
+    else:
+        print("No new sales detected.")
+
     # Compute stats for changelog
     redfin_vals = [p["redfin"] for p in prop_map.values() if p.get("redfin")]
     avg_redfin = round(sum(redfin_vals) / len(redfin_vals)) if redfin_vals else 0
 
-    # Count new sales since last changelog entry
     changelog = data.get("changelog", [])
-    prev_sales_count = changelog[-1]["total_sales"] if changelog else len(data.get("sales", []))
     current_sales_count = len(data.get("sales", []))
-    new_sales = current_sales_count - prev_sales_count
 
     # Append changelog entry
     entry = {
@@ -276,7 +377,7 @@ def main():
         "redfin_updated": successes,
         "redfin_failed": failures,
         "avg_redfin": avg_redfin,
-        "new_sales": max(new_sales, 0),
+        "new_sales": len(discovered),
         "total_sales": current_sales_count,
     }
     changelog.append(entry)
