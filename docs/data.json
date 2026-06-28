@@ -1,12 +1,12 @@
 {
-  "exported_at": "2026-06-26T02:09:50Z",
+  "exported_at": "2026-06-28T00:00:00Z",
   "properties": [
     {
       "unit": 111,
       "address": "111 Woodgate Lane Paoli PA 19301",
       "zillow": 508800,
-      "redfin": 454140,
-      "estimate_date": "2026-02-23",
+      "redfin": 467979.78,
+      "estimate_date": "2026-06-28",
       "zillow_date": "2026-02-23",
       "sqft": 2133
     },
@@ -14,8 +14,8 @@
       "unit": 112,
       "address": "112 Woodgate Lane Paoli PA 19301",
       "zillow": 494500,
-      "redfin": 447300,
-      "estimate_date": "2026-02-23",
+      "redfin": 472038.61,
+      "estimate_date": "2026-06-28",
       "zillow_date": "2026-02-23",
       "sqft": 2085
     },
@@ -23,8 +23,8 @@
       "unit": 113,
       "address": "113 Woodgate Lane Paoli PA 19301",
       "zillow": 528800,
-      "redfin": 508052,
-      "estimate_date": "2026-02-23",
+      "redfin": 527965.15,
+      "estimate_date": "2026-06-28",
       "zillow_date": "2026-02-23",
       "sqft": 2133
     },
@@ -32,8 +32,8 @@
       "unit": 114,
       "address": "114 Woodgate Lane Paoli PA 19301",
       "zillow": 478200,
-      "redfin": 411877,
-      "estimate_date": "2026-02-23",
+      "redfin": 478013.43,
+      "estimate_date": "2026-06-28",
       "zillow_date": "2026-02-23",
       "sqft": 2085
     },
@@ -41,8 +41,8 @@
       "unit": 115,
       "address": "115 Woodgate Lane Paoli PA 19301",
       "zillow": 505800,
-      "redfin": 461419,
-      "estimate_date": "2026-02-23",
+      "redfin": 492734.75,
+      "estimate_date": "2026-06-28",
       "zillow_date": "2026-02-23",
       "sqft": 2133
     },
@@ -50,8 +50,8 @@
       "unit": 116,
       "address": "116 Woodgate Lane Paoli PA 19301",
       "zillow": 454300,
-      "redfin": 490086,
-      "estimate_date": "2026-02-23",
+      "redfin": 535617.67,
+      "estimate_date": "2026-06-28",
       "zillow_date": "2026-02-23",
       "sqft": 2085
     },
@@ -8338,6 +8338,15 @@
       "avg_redfin": 489542,
       "new_sales": 0,
       "total_sales": 235
+    },
+    {
+      "date": "2026-06-28",
+      "type": "redfin_update",
+      "redfin_updated": 6,
+      "redfin_failed": 54,
+      "avg_redfin": 466014,
+      "new_sales": 0,
+      "total_sales": 236
     }
   ]
 }
