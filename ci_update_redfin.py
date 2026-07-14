@@ -30,6 +30,41 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 PROPERTIES_CSV = os.path.join(BASE_DIR, "properties.csv")
 DATA_JSON = os.path.join(BASE_DIR, "docs", "data.json")
 
+# --- Pacing to avoid tripping Redfin's anti-bot blocking ---
+REQUEST_DELAY_RANGE = (2.0, 5.0)     # jitter between individual requests
+BATCH_SIZE = 15                       # properties per batch
+BATCH_PAUSE_RANGE = (30.0, 60.0)      # jitter pause between batches
+BACKOFF_FAILURE_THRESHOLD = 3         # consecutive failures before backing off
+BACKOFF_BASE_SECONDS = 45.0           # base pause, doubles each time it re-triggers
+BACKOFF_MAX_SECONDS = 300.0
+ABORT_AFTER_CONSECUTIVE_FAILURES = 12  # give up rather than backoff-loop for hours
+
+
+def _pace(i, total, consecutive_failures, backoff_level):
+    """Sleep between requests: per-request jitter, longer batch pauses, and
+    exponential backoff if we appear to be getting blocked.
+
+    Returns the (possibly updated) backoff_level.
+    """
+    if i >= total - 1:
+        return backoff_level
+
+    if consecutive_failures >= BACKOFF_FAILURE_THRESHOLD:
+        pause = min(BACKOFF_BASE_SECONDS * (2 ** backoff_level), BACKOFF_MAX_SECONDS)
+        pause += random.uniform(0, 10)
+        print(f"  ...{consecutive_failures} failures in a row, backing off {pause:.0f}s")
+        time.sleep(pause)
+        return backoff_level + 1
+
+    if (i + 1) % BATCH_SIZE == 0:
+        pause = random.uniform(*BATCH_PAUSE_RANGE)
+        print(f"  ...batch of {BATCH_SIZE} done, pausing {pause:.0f}s")
+        time.sleep(pause)
+        return 0
+
+    time.sleep(random.uniform(*REQUEST_DELAY_RANGE))
+    return backoff_level
+
 
 # --- Scraping helpers ---
 
@@ -197,13 +232,13 @@ def _scrape_redfin_sales(url):
     """Scrape recent sale history from a Redfin property page.
 
     Returns a list of {"date": "YYYY-MM-DD", "price": int} dicts for Sold events,
-    or an empty list if none found / page unavailable.
+    or None if the page could not be fetched (distinct from "fetched fine, no sales").
     """
     from datetime import datetime as _dt
 
     soup = _fetch_page(url)
     if not soup:
-        return []
+        return None
 
     sales = []
 
@@ -268,10 +303,17 @@ def detect_new_sales(props, existing_sales):
         return False
 
     new_sales = []
+    consecutive_failures = 0
+    backoff_level = 0
     for i, prop in enumerate(props):
         unit = prop["unit"]
         print(f"  [sales check {i+1}/{len(props)}] Unit {unit}")
         scraped = _scrape_redfin_sales(prop["redfin_url"])
+        if scraped is None:
+            consecutive_failures += 1
+            scraped = []
+        else:
+            consecutive_failures = 0
         for s in scraped:
             if not _is_known(unit, s["date"], s["price"]):
                 print(f"    NEW SALE: Unit {unit} on {s['date']} for ${s['price']:,}")
@@ -281,8 +323,16 @@ def detect_new_sales(props, existing_sales):
                     "price": s["price"],
                     "source": "redfin",
                 })
-        if i < len(props) - 1:
-            time.sleep(random.uniform(1.0, 2.0))
+
+        if consecutive_failures >= ABORT_AFTER_CONSECUTIVE_FAILURES:
+            remaining = len(props) - (i + 1)
+            print(
+                f"  ABORTING sales check: {consecutive_failures} consecutive failures — "
+                f"skipping remaining {remaining} propert{'y' if remaining == 1 else 'ies'}."
+            )
+            break
+
+        backoff_level = _pace(i, len(props), consecutive_failures, backoff_level)
 
     return new_sales
 
@@ -330,6 +380,9 @@ def main():
     api_successes = 0
     html_successes = 0
 
+    consecutive_failures = 0
+    backoff_level = 0
+    blocked = False
     for i, prop in enumerate(props):
         unit = prop["unit"]
         print(f"[{i+1}/{len(props)}] Unit {unit}: {prop['redfin_url']}")
@@ -341,6 +394,7 @@ def main():
                 prop_map[unit]["redfin"] = price
                 prop_map[unit]["estimate_date"] = today
             successes += 1
+            consecutive_failures = 0
             if method == "api":
                 api_successes += 1
             else:
@@ -348,20 +402,34 @@ def main():
         else:
             print("  -> FAILED")
             failures += 1
+            consecutive_failures += 1
 
-        # Rate limit between requests (skip after last)
-        if i < len(props) - 1:
-            time.sleep(random.uniform(1.0, 2.0))
+        if consecutive_failures >= ABORT_AFTER_CONSECUTIVE_FAILURES:
+            remaining = len(props) - (i + 1)
+            print(
+                f"ABORTING: {consecutive_failures} consecutive failures — "
+                f"Redfin appears fully blocked. Skipping remaining {remaining} propert"
+                f"{'y' if remaining == 1 else 'ies'} and the sales check this run."
+            )
+            failures += remaining
+            blocked = True
+            break
+
+        backoff_level = _pace(i, len(props), consecutive_failures, backoff_level)
 
     # Check Redfin property pages for new sales not already in data.json
-    print("\nChecking for new sales on Redfin...")
-    discovered = detect_new_sales(props, data.get("sales", []))
-    if discovered:
-        print(f"Found {len(discovered)} new sale(s) — adding to data.json")
-        data["sales"] = data.get("sales", []) + discovered
-        data["sales"].sort(key=lambda s: (s["date"], s["unit"]))
+    # (skip if we already gave up above — Redfin is blocking us either way)
+    if blocked:
+        discovered = []
     else:
-        print("No new sales detected.")
+        print("\nChecking for new sales on Redfin...")
+        discovered = detect_new_sales(props, data.get("sales", []))
+        if discovered:
+            print(f"Found {len(discovered)} new sale(s) — adding to data.json")
+            data["sales"] = data.get("sales", []) + discovered
+            data["sales"].sort(key=lambda s: (s["date"], s["unit"]))
+        else:
+            print("No new sales detected.")
 
     # Compute stats for changelog
     redfin_vals = [p["redfin"] for p in prop_map.values() if p.get("redfin")]
