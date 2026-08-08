@@ -38,6 +38,7 @@ BACKOFF_FAILURE_THRESHOLD = 3         # consecutive failures before backing off
 BACKOFF_BASE_SECONDS = 45.0           # base pause, doubles each time it re-triggers
 BACKOFF_MAX_SECONDS = 300.0
 ABORT_AFTER_CONSECUTIVE_FAILURES = 12  # give up rather than backoff-loop for hours
+ROTATION_BATCH_SIZE = 15              # units touched per run; full portfolio cycles over ~4 runs
 
 
 def _pace(i, total, consecutive_failures, backoff_level):
@@ -374,6 +375,21 @@ def main():
     # Build lookup by unit number
     prop_map = {p["unit"]: p for p in data["properties"]}
 
+    # Rotate by staleness: always work the units whose Redfin estimate is
+    # oldest (or has never succeeded) first. This is self-correcting even if
+    # some units are consistently harder to fetch than others — a unit that
+    # keeps losing to Redfin's blocking just stays at the front of the queue
+    # instead of getting stranded behind units that happen to always succeed.
+    def _staleness_key(prop):
+        estimate_date = prop_map.get(prop["unit"], {}).get("estimate_date") or "0000-00-00"
+        return (estimate_date, prop["unit"])
+
+    props_batch = sorted(props, key=_staleness_key)[:ROTATION_BATCH_SIZE]
+    print(
+        f"Rotating {len(props_batch)} of {len(props)} properties this run "
+        f"(units: {', '.join(str(p['unit']) for p in props_batch)})"
+    )
+
     today = date.today().isoformat()
     successes = 0
     failures = 0
@@ -383,9 +399,9 @@ def main():
     consecutive_failures = 0
     backoff_level = 0
     blocked = False
-    for i, prop in enumerate(props):
+    for i, prop in enumerate(props_batch):
         unit = prop["unit"]
-        print(f"[{i+1}/{len(props)}] Unit {unit}: {prop['redfin_url']}")
+        print(f"[{i+1}/{len(props_batch)}] Unit {unit}: {prop['redfin_url']}")
 
         price, method = scrape_redfin(prop["redfin_url"])
         if price:
@@ -405,7 +421,7 @@ def main():
             consecutive_failures += 1
 
         if consecutive_failures >= ABORT_AFTER_CONSECUTIVE_FAILURES:
-            remaining = len(props) - (i + 1)
+            remaining = len(props_batch) - (i + 1)
             print(
                 f"ABORTING: {consecutive_failures} consecutive failures — "
                 f"Redfin appears fully blocked. Skipping remaining {remaining} propert"
@@ -415,7 +431,7 @@ def main():
             blocked = True
             break
 
-        backoff_level = _pace(i, len(props), consecutive_failures, backoff_level)
+        backoff_level = _pace(i, len(props_batch), consecutive_failures, backoff_level)
 
     # Check Redfin property pages for new sales not already in data.json
     # (skip if we already gave up above — Redfin is blocking us either way)
@@ -423,7 +439,7 @@ def main():
         discovered = []
     else:
         print("\nChecking for new sales on Redfin...")
-        discovered = detect_new_sales(props, data.get("sales", []))
+        discovered = detect_new_sales(props_batch, data.get("sales", []))
         if discovered:
             print(f"Found {len(discovered)} new sale(s) — adding to data.json")
             data["sales"] = data.get("sales", []) + discovered
@@ -457,10 +473,11 @@ def main():
     save_data_json(data)
 
     print(f"\nDone: {successes} successes ({api_successes} API, {html_successes} HTML), "
-          f"{failures} failures out of {len(props)}")
+          f"{failures} failures out of {len(props_batch)} "
+          f"(rotation batch; {len(props)} properties total)")
 
-    # Exit with error if more than half failed (likely blocked)
-    if len(props) > 0 and failures > len(props) / 2:
+    # Exit with error if more than half of this run's batch failed (likely blocked)
+    if len(props_batch) > 0 and failures > len(props_batch) / 2:
         print("ERROR: >50% of scrapes failed — likely blocked by Redfin")
         sys.exit(1)
 
