@@ -13,7 +13,7 @@ import random
 import re
 import sys
 import time
-from datetime import date
+from datetime import date, timedelta
 
 import requests
 from bs4 import BeautifulSoup
@@ -31,40 +31,30 @@ PROPERTIES_CSV = os.path.join(BASE_DIR, "properties.csv")
 DATA_JSON = os.path.join(BASE_DIR, "docs", "data.json")
 
 # --- Pacing to avoid tripping Redfin's anti-bot blocking ---
-REQUEST_DELAY_RANGE = (2.0, 5.0)     # jitter between individual requests
-BATCH_SIZE = 15                       # properties per batch
-BATCH_PAUSE_RANGE = (30.0, 60.0)      # jitter pause between batches
-BACKOFF_FAILURE_THRESHOLD = 3         # consecutive failures before backing off
-BACKOFF_BASE_SECONDS = 45.0           # base pause, doubles each time it re-triggers
-BACKOFF_MAX_SECONDS = 300.0
-ABORT_AFTER_CONSECUTIVE_FAILURES = 12  # give up rather than backoff-loop for hours
-ROTATION_BATCH_SIZE = 15              # units touched per run; full portfolio cycles over ~4 runs
+# Observed behavior across five separate runs: every run gets exactly ~6
+# consecutive successes before 403s start, and once blocked, a fresh success
+# unlocks after ~5.5-6 minutes regardless of backoff length. That looks like
+# a burst allowance of ~6 requests on a rolling window of a few minutes, not
+# an hourly quota. Testing staying under both: bursts of 5, paused 10 minutes
+# apart (comfortably under the burst size and over the refill window).
+REQUEST_DELAY_RANGE = (2.0, 5.0)     # jitter between individual requests within a burst
+BURST_SIZE = 5                        # requests per burst
+BURST_PAUSE_SECONDS = 600.0           # fixed pause between bursts (10 minutes)
+ABORT_AFTER_CONSECUTIVE_FAILURES = 15  # let a full run's queue complete for clean data, rather than give up early
+FRESHNESS_DAYS = 30                   # every unit must have a successful Redfin check within this window
 
 
-def _pace(i, total, consecutive_failures, backoff_level):
-    """Sleep between requests: per-request jitter, longer batch pauses, and
-    exponential backoff if we appear to be getting blocked.
-
-    Returns the (possibly updated) backoff_level.
-    """
+def _pace(i, total):
+    """Sleep between requests: per-request jitter within a burst, and a
+    fixed pause between bursts of BURST_SIZE requests."""
     if i >= total - 1:
-        return backoff_level
+        return
 
-    if consecutive_failures >= BACKOFF_FAILURE_THRESHOLD:
-        pause = min(BACKOFF_BASE_SECONDS * (2 ** backoff_level), BACKOFF_MAX_SECONDS)
-        pause += random.uniform(0, 10)
-        print(f"  ...{consecutive_failures} failures in a row, backing off {pause:.0f}s")
-        time.sleep(pause)
-        return backoff_level + 1
-
-    if (i + 1) % BATCH_SIZE == 0:
-        pause = random.uniform(*BATCH_PAUSE_RANGE)
-        print(f"  ...batch of {BATCH_SIZE} done, pausing {pause:.0f}s")
-        time.sleep(pause)
-        return 0
-
-    time.sleep(random.uniform(*REQUEST_DELAY_RANGE))
-    return backoff_level
+    if (i + 1) % BURST_SIZE == 0:
+        print(f"  ...burst of {BURST_SIZE} done, pausing {BURST_PAUSE_SECONDS:.0f}s")
+        time.sleep(BURST_PAUSE_SECONDS)
+    else:
+        time.sleep(random.uniform(*REQUEST_DELAY_RANGE))
 
 
 # --- Scraping helpers ---
@@ -305,7 +295,6 @@ def detect_new_sales(props, existing_sales):
 
     new_sales = []
     consecutive_failures = 0
-    backoff_level = 0
     for i, prop in enumerate(props):
         unit = prop["unit"]
         print(f"  [sales check {i+1}/{len(props)}] Unit {unit}")
@@ -333,7 +322,7 @@ def detect_new_sales(props, existing_sales):
             )
             break
 
-        backoff_level = _pace(i, len(props), consecutive_failures, backoff_level)
+        _pace(i, len(props))
 
     return new_sales
 
@@ -375,19 +364,29 @@ def main():
     # Build lookup by unit number
     prop_map = {p["unit"]: p for p in data["properties"]}
 
-    # Rotate by staleness: always work the units whose Redfin estimate is
-    # oldest (or has never succeeded) first. This is self-correcting even if
-    # some units are consistently harder to fetch than others — a unit that
-    # keeps losing to Redfin's blocking just stays at the front of the queue
-    # instead of getting stranded behind units that happen to always succeed.
-    def _staleness_key(prop):
-        estimate_date = prop_map.get(prop["unit"], {}).get("estimate_date") or "0000-00-00"
-        return (estimate_date, prop["unit"])
+    # Queue any unit that hasn't had a successful Redfin check within the
+    # freshness window (or has never succeeded at all), oldest first, and
+    # process the whole queue — not a fixed count. A bad week just grows
+    # next week's queue instead of stranding a unit past the 30-day target.
+    cutoff = (date.today() - timedelta(days=FRESHNESS_DAYS)).isoformat()
 
-    props_batch = sorted(props, key=_staleness_key)[:ROTATION_BATCH_SIZE]
+    def _estimate_date(prop):
+        return prop_map.get(prop["unit"], {}).get("estimate_date")
+
+    stale_props = sorted(
+        (p for p in props if not _estimate_date(p) or _estimate_date(p) < cutoff),
+        key=lambda p: _estimate_date(p) or "0000-00-00",
+    )
+
+    if not stale_props:
+        print(f"All {len(props)} properties have a Redfin check within the last "
+              f"{FRESHNESS_DAYS} days — nothing to do this run.")
+        return
+
     print(
-        f"Rotating {len(props_batch)} of {len(props)} properties this run "
-        f"(units: {', '.join(str(p['unit']) for p in props_batch)})"
+        f"{len(stale_props)} of {len(props)} properties are stale "
+        f"(no successful Redfin check in {FRESHNESS_DAYS}+ days): "
+        f"{', '.join(str(p['unit']) for p in stale_props)}"
     )
 
     today = date.today().isoformat()
@@ -397,11 +396,10 @@ def main():
     html_successes = 0
 
     consecutive_failures = 0
-    backoff_level = 0
     blocked = False
-    for i, prop in enumerate(props_batch):
+    for i, prop in enumerate(stale_props):
         unit = prop["unit"]
-        print(f"[{i+1}/{len(props_batch)}] Unit {unit}: {prop['redfin_url']}")
+        print(f"[{i+1}/{len(stale_props)}] Unit {unit}: {prop['redfin_url']}")
 
         price, method = scrape_redfin(prop["redfin_url"])
         if price:
@@ -421,7 +419,7 @@ def main():
             consecutive_failures += 1
 
         if consecutive_failures >= ABORT_AFTER_CONSECUTIVE_FAILURES:
-            remaining = len(props_batch) - (i + 1)
+            remaining = len(stale_props) - (i + 1)
             print(
                 f"ABORTING: {consecutive_failures} consecutive failures — "
                 f"Redfin appears fully blocked. Skipping remaining {remaining} propert"
@@ -431,7 +429,7 @@ def main():
             blocked = True
             break
 
-        backoff_level = _pace(i, len(props_batch), consecutive_failures, backoff_level)
+        _pace(i, len(stale_props))
 
     # Check Redfin property pages for new sales not already in data.json
     # (skip if we already gave up above — Redfin is blocking us either way)
@@ -439,7 +437,7 @@ def main():
         discovered = []
     else:
         print("\nChecking for new sales on Redfin...")
-        discovered = detect_new_sales(props_batch, data.get("sales", []))
+        discovered = detect_new_sales(stale_props, data.get("sales", []))
         if discovered:
             print(f"Found {len(discovered)} new sale(s) — adding to data.json")
             data["sales"] = data.get("sales", []) + discovered
@@ -473,11 +471,11 @@ def main():
     save_data_json(data)
 
     print(f"\nDone: {successes} successes ({api_successes} API, {html_successes} HTML), "
-          f"{failures} failures out of {len(props_batch)} "
-          f"(rotation batch; {len(props)} properties total)")
+          f"{failures} failures out of {len(stale_props)} stale "
+          f"({len(props)} properties total)")
 
-    # Exit with error if more than half of this run's batch failed (likely blocked)
-    if len(props_batch) > 0 and failures > len(props_batch) / 2:
+    # Exit with error if more than half of this run's queue failed (likely blocked)
+    if failures > len(stale_props) / 2:
         print("ERROR: >50% of scrapes failed — likely blocked by Redfin")
         sys.exit(1)
 
