@@ -131,8 +131,8 @@
       "unit": 125,
       "address": "125 Woodgate Lane Paoli PA 19301",
       "zillow": 490300,
-      "redfin": 450424,
-      "estimate_date": "2026-02-23",
+      "redfin": 461753.48,
+      "estimate_date": "2026-08-08",
       "zillow_date": "2026-02-23",
       "sqft": 2133
     },
@@ -149,8 +149,8 @@
       "unit": 127,
       "address": "127 Woodgate Lane Paoli PA 19301",
       "zillow": 441900,
-      "redfin": 420085,
-      "estimate_date": "2026-02-23",
+      "redfin": 460710.61,
+      "estimate_date": "2026-08-08",
       "zillow_date": "2026-02-23",
       "sqft": 2085
     },
@@ -158,8 +158,8 @@
       "unit": 128,
       "address": "128 Woodgate Lane Paoli PA 19301",
       "zillow": 538100,
-      "redfin": 500597,
-      "estimate_date": "2026-02-23",
+      "redfin": 533447.69,
+      "estimate_date": "2026-08-08",
       "zillow_date": "2026-02-23",
       "sqft": 2133
     },
@@ -167,8 +167,8 @@
       "unit": 129,
       "address": "129 Woodgate Lane Paoli PA 19301",
       "zillow": 497200,
-      "redfin": 504516,
-      "estimate_date": "2026-02-23",
+      "redfin": 518077.89,
+      "estimate_date": "2026-08-08",
       "zillow_date": "2026-02-23",
       "sqft": 2085
     },
@@ -185,8 +185,8 @@
       "unit": 131,
       "address": "131 Woodgate Lane Paoli PA 19301",
       "zillow": 546900,
-      "redfin": 497903,
-      "estimate_date": "2026-02-23",
+      "redfin": 543713.44,
+      "estimate_date": "2026-08-08",
       "zillow_date": "2026-02-23",
       "sqft": 2133
     },
@@ -221,8 +221,8 @@
       "unit": 135,
       "address": "135 Woodgate Lane Paoli PA 19301",
       "zillow": 480700,
-      "redfin": 470553,
-      "estimate_date": "2026-02-23",
+      "redfin": 502632.27,
+      "estimate_date": "2026-08-08",
       "zillow_date": "2026-02-23",
       "sqft": 2133
     },
@@ -284,8 +284,8 @@
       "unit": 142,
       "address": "142 Woodgate Lane Paoli PA 19301",
       "zillow": 513500,
-      "redfin": 471526,
-      "estimate_date": "2026-02-23",
+      "redfin": 502496.21,
+      "estimate_date": "2026-08-08",
       "zillow_date": "2026-02-23",
       "sqft": 2085
     },
@@ -8392,6 +8392,15 @@
       "redfin_updated": 8,
       "redfin_failed": 7,
       "avg_redfin": 478172,
+      "new_sales": 0,
+      "total_sales": 236
+    },
+    {
+      "date": "2026-08-08",
+      "type": "redfin_update",
+      "redfin_updated": 7,
+      "redfin_failed": 8,
+      "avg_redfin": 481626,
       "new_sales": 0,
       "total_sales": 236
     }
