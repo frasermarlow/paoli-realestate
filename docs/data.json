@@ -1,5 +1,5 @@
 {
-  "exported_at": "2026-08-09T00:00:00Z",
+  "exported_at": "2026-08-16T00:00:00Z",
   "properties": [
     {
       "unit": 111,
@@ -59,8 +59,8 @@
       "unit": 117,
       "address": "117 Woodgate Lane Paoli PA 19301",
       "zillow": 544500,
-      "redfin": 514008,
-      "estimate_date": "2026-07-14",
+      "redfin": 564667.47,
+      "estimate_date": "2026-08-16",
       "zillow_date": "2026-07-14",
       "sqft": 2133
     },
@@ -8419,6 +8419,15 @@
       "redfin_updated": 11,
       "redfin_failed": 0,
       "avg_redfin": 496519,
+      "new_sales": 0,
+      "total_sales": 236
+    },
+    {
+      "date": "2026-08-16",
+      "type": "redfin_update",
+      "redfin_updated": 1,
+      "redfin_failed": 0,
+      "avg_redfin": 497363,
       "new_sales": 0,
       "total_sales": 236
     }
