@@ -4,3 +4,4 @@ __pycache__/
 data/woodgate.db
 *.egg-info/
 .env
+data/*.log
