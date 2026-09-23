@@ -27,9 +27,9 @@ jobs:
 
       - name: Commit and push if changed
         run: |
-          git diff --quiet docs/data.json && exit 0
+          git diff --quiet docs/data.json properties.csv && exit 0
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add docs/data.json
+          git add docs/data.json properties.csv
           git commit -m "Update Redfin estimates $(date -u +%Y-%m-%d)"
           git push

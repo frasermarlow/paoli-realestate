@@ -42,6 +42,7 @@ BURST_SIZE = 5                        # requests per burst
 BURST_PAUSE_SECONDS = 600.0           # fixed pause between bursts (10 minutes)
 ABORT_AFTER_CONSECUTIVE_FAILURES = 15  # let a full run's queue complete for clean data, rather than give up early
 FRESHNESS_DAYS = 30                   # every unit must have a successful Redfin check within this window
+SALE_DATE_TOLERANCE_DAYS = 180        # same unit + price within this many days = same sale (HOA dates can be ~2 months off Redfin)
 
 
 def _pace(i, total):
@@ -219,11 +220,28 @@ def scrape_redfin(url):
     return None, None
 
 
-def _scrape_redfin_sales(url):
+# Links to Woodgate homes appear in page HTML both as hrefs and JSON-escaped
+# (\u002F for "/") inside embedded data, e.g. nearby-homes and comparables.
+_WOODGATE_LINK_RE = re.compile(
+    r"/PA/Paoli/(\d+)-Woodgate-Ln-19301(?:/unit-[\w-]+)?/home/(\d+)"
+)
+
+
+def _find_woodgate_links(soup):
+    """Return {unit_number: {redfin_property_id: path}} for every Woodgate home linked from a page."""
+    html = str(soup).replace("\\u002F", "/").replace("\\/", "/")
+    links = {}
+    for m in _WOODGATE_LINK_RE.finditer(html):
+        links.setdefault(int(m.group(1)), {}).setdefault(m.group(2), m.group(0))
+    return links
+
+
+def _scrape_redfin_sales(url, links_out=None):
     """Scrape recent sale history from a Redfin property page.
 
     Returns a list of {"date": "YYYY-MM-DD", "price": int} dicts for Sold events,
     or None if the page could not be fetched (distinct from "fetched fine, no sales").
+    If links_out is a dict, Woodgate property links found on the page are merged into it.
     """
     from datetime import datetime as _dt
 
@@ -231,11 +249,17 @@ def _scrape_redfin_sales(url):
     if not soup:
         return None
 
+    if links_out is not None:
+        for unit, ids in _find_woodgate_links(soup).items():
+            for pid, path in ids.items():
+                links_out.setdefault(unit, {}).setdefault(pid, path)
+
     sales = []
 
-    # Approach 1: structured table rows (various Redfin layouts)
+    # Approach 1: structured table rows (various Redfin layouts). Redfin's
+    # current sale history is div-based (.BasicTable__col), not <td>/<th>.
     for row in soup.select(".BasicTable__row, [data-rf-test-id='sale-history'] tr, tr"):
-        cells = row.select("td, th")
+        cells = row.select(".BasicTable__col, td, th")
         row_text = " ".join(c.get_text(" ", strip=True) for c in cells)
         if "sold" not in row_text.lower():
             continue
@@ -261,44 +285,60 @@ def _scrape_redfin_sales(url):
     # Approach 2: regex over full page text
     text = soup.get_text(" ")
     for m in re.finditer(
-        r"(\d{1,2}/\d{1,2}/\d{4})\s+Sold\s+\$([0-9,]+)",
+        r"(\d{1,2}/\d{1,2}/\d{4}|[A-Z][a-z]{2}\s+\d{1,2},\s+\d{4})\s+Sold\s+\$([0-9,]+)",
         text,
-        re.IGNORECASE,
     ):
-        try:
-            sale_date = _dt.strptime(m.group(1), "%m/%d/%Y").strftime("%Y-%m-%d")
-            price = int(m.group(2).replace(",", ""))
-            if price > 10000:
-                sales.append({"date": sale_date, "price": price})
-        except ValueError:
-            pass
+        for fmt in ("%m/%d/%Y", "%b %d, %Y"):
+            try:
+                sale_date = _dt.strptime(m.group(1), fmt).strftime("%Y-%m-%d")
+                break
+            except ValueError:
+                sale_date = None
+        price = int(m.group(2).replace(",", ""))
+        if sale_date and price > 10000:
+            sales.append({"date": sale_date, "price": price})
 
     return sales
 
 
-def detect_new_sales(props, existing_sales):
+def detect_new_sales(props, existing_sales, links_out=None):
     """Scrape Redfin sale history for each property and return sales not in existing_sales.
+
+    Checks each unit's redfin_url and, when present, its redfin_listing_url (the
+    MLS listing record, which shows a sale ~1-3 weeks before public records do).
 
     existing_sales: list of {"unit": int, "date": str, "price": int, ...}
     Returns list of new {"unit": int, "date": str, "price": int, "source": "redfin"}.
     """
-    # Build a set of (unit, date, price) for fast lookup; also allow price within $1000
+    # Match on unit + price within $1000 + date within SALE_DATE_TOLERANCE_DAYS.
+    # The same sale shows different dates by source: MLS close date, public-records
+    # recording date (often 1-3 weeks later), and HOA-reported date.
     known = {}
     for s in existing_sales:
         known.setdefault(s["unit"], []).append(s)
 
-    def _is_known(unit, date, price):
+    def _is_known(unit, sale_date, price):
+        d = date.fromisoformat(sale_date)
         for s in known.get(unit, []):
-            if s["date"] == date and abs(s["price"] - price) <= 1000:
+            if (abs(s["price"] - price) <= 1000
+                    and abs((date.fromisoformat(s["date"]) - d).days) <= SALE_DATE_TOLERANCE_DAYS):
                 return True
         return False
 
+    # One entry per page fetch, so pacing counts requests rather than units.
+    # Listing page first so a sale is recorded with the MLS close date rather
+    # than the later public-records date.
+    pages = []
+    for prop in props:
+        if prop.get("redfin_listing_url"):
+            pages.append((prop["unit"], prop["redfin_listing_url"]))
+        pages.append((prop["unit"], prop["redfin_url"]))
+
     new_sales = []
     consecutive_failures = 0
-    for i, prop in enumerate(props):
-        unit = prop["unit"]
-        print(f"  [sales check {i+1}/{len(props)}] Unit {unit}")
-        scraped = _scrape_redfin_sales(prop["redfin_url"])
+    for i, (unit, url) in enumerate(pages):
+        print(f"  [sales check {i+1}/{len(pages)}] Unit {unit}: {url}")
+        scraped = _scrape_redfin_sales(url, links_out)
         if scraped is None:
             consecutive_failures += 1
             scraped = []
@@ -307,22 +347,25 @@ def detect_new_sales(props, existing_sales):
         for s in scraped:
             if not _is_known(unit, s["date"], s["price"]):
                 print(f"    NEW SALE: Unit {unit} on {s['date']} for ${s['price']:,}")
-                new_sales.append({
+                sale = {
                     "unit": unit,
                     "date": s["date"],
                     "price": s["price"],
                     "source": "redfin",
-                })
+                }
+                new_sales.append(sale)
+                # So the same sale on the unit's other page (different date) isn't added twice
+                known.setdefault(unit, []).append(sale)
 
         if consecutive_failures >= ABORT_AFTER_CONSECUTIVE_FAILURES:
-            remaining = len(props) - (i + 1)
+            remaining = len(pages) - (i + 1)
             print(
                 f"  ABORTING sales check: {consecutive_failures} consecutive failures — "
-                f"skipping remaining {remaining} propert{'y' if remaining == 1 else 'ies'}."
+                f"skipping remaining {remaining} page{'' if remaining == 1 else 's'}."
             )
             break
 
-        _pace(i, len(props))
+        _pace(i, len(pages))
 
     return new_sales
 
@@ -330,7 +373,8 @@ def detect_new_sales(props, existing_sales):
 # --- Main logic ---
 
 def load_properties():
-    """Read properties.csv and return list of dicts with unit_number and redfin_url."""
+    """Read properties.csv and return list of dicts with unit_number, redfin_url
+    and (optional) redfin_listing_url."""
     props = []
     with open(PROPERTIES_CSV, newline="") as f:
         reader = csv.DictReader(f)
@@ -341,8 +385,51 @@ def load_properties():
                     "unit": int(row["unit_number"]),
                     "address": row["address"],
                     "redfin_url": url,
+                    "redfin_listing_url": (row.get("redfin_listing_url") or "").strip(),
                 })
     return props
+
+
+def save_discovered_listing_urls(props, links):
+    """Fill in redfin_listing_url in properties.csv for units that lack one.
+
+    links: {unit: {redfin_property_id: path}} harvested from pages during the run.
+    A unit's listing record is a second Redfin property ID for the same address;
+    it's only recorded when exactly one such ID was seen. Returns units updated.
+    """
+    by_unit = {p["unit"]: p for p in props}
+    found = {}
+    for unit, ids in links.items():
+        prop = by_unit.get(unit)
+        if not prop or prop["redfin_listing_url"]:
+            continue
+        own_id = _extract_property_id(prop["redfin_url"])
+        others = {pid: path for pid, path in ids.items() if pid != own_id}
+        if len(others) == 1:
+            found[unit] = "https://www.redfin.com" + next(iter(others.values()))
+        elif len(others) > 1:
+            print(f"  Unit {unit}: multiple candidate listing records {sorted(others)} — skipping")
+
+    if not found:
+        return []
+
+    with open(PROPERTIES_CSV, newline="") as f:
+        reader = csv.DictReader(f)
+        fieldnames = list(reader.fieldnames)
+        rows = list(reader)
+    if "redfin_listing_url" not in fieldnames:
+        fieldnames.append("redfin_listing_url")
+    for row in rows:
+        url = found.get(int(row["unit_number"]))
+        if url and not (row.get("redfin_listing_url") or "").strip():
+            row["redfin_listing_url"] = url
+    with open(PROPERTIES_CSV, "w", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerows(rows)
+    for unit in sorted(found):
+        print(f"  Unit {unit}: recorded listing URL {found[unit]}")
+    return sorted(found)
 
 
 def load_data_json():
@@ -437,7 +524,9 @@ def main():
         discovered = []
     else:
         print("\nChecking for new sales on Redfin...")
-        discovered = detect_new_sales(stale_props, data.get("sales", []))
+        links = {}
+        discovered = detect_new_sales(stale_props, data.get("sales", []), links)
+        save_discovered_listing_urls(props, links)
         if discovered:
             print(f"Found {len(discovered)} new sale(s) — adding to data.json")
             data["sales"] = data.get("sales", []) + discovered

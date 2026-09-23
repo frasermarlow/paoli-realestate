@@ -11,12 +11,12 @@ echo "=== $(date) ===" >> "$LOG"
 
 python3 ci_update_redfin.py 2>&1 | tee -a "$LOG"
 
-if git diff --quiet docs/data.json; then
-    echo "No changes to data.json" | tee -a "$LOG"
+if git diff --quiet docs/data.json properties.csv; then
+    echo "No changes to data.json or properties.csv" | tee -a "$LOG"
     exit 0
 fi
 
-git add docs/data.json
+git add docs/data.json properties.csv
 git commit -m "Update Redfin estimates $(date -u +%Y-%m-%d)"
 git push
 
