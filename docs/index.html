@@ -1044,12 +1044,12 @@
 
       if (results.length === 0) return;
 
-      // Sort by longest held first
-      results.sort((a, b) => b.days - a.days);
+      // Sort by most recent sale first
+      results.sort((a, b) => a.days - b.days);
 
       // Color gradient: green (recent) to amber (long-held)
-      const maxDays = results[0].days;
-      const minDays = results[results.length - 1].days;
+      const minDays = results[0].days;
+      const maxDays = results[results.length - 1].days;
       const range = maxDays - minDays || 1;
       const colors = results.map(r => {
         const t = (r.days - minDays) / range; // 0 = recent, 1 = long-held
