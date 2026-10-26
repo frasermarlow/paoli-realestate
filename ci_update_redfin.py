@@ -40,6 +40,7 @@ DATA_JSON = os.path.join(BASE_DIR, "docs", "data.json")
 REQUEST_DELAY_RANGE = (2.0, 5.0)     # jitter between individual requests within a burst
 BURST_SIZE = 5                        # requests per burst
 BURST_PAUSE_SECONDS = 600.0           # fixed pause between bursts (10 minutes)
+MAX_UNITS_PER_RUN = 20                # cap per run so units age out in staggered waves instead of all at once
 ABORT_AFTER_CONSECUTIVE_FAILURES = 15  # let a full run's queue complete for clean data, rather than give up early
 FRESHNESS_DAYS = 30                   # every unit must have a successful Redfin check within this window
 SALE_DATE_TOLERANCE_DAYS = 180        # same unit + price within this many days = same sale (HOA dates can be ~2 months off Redfin)
@@ -469,6 +470,11 @@ def main():
         print(f"All {len(props)} properties have a Redfin check within the last "
               f"{FRESHNESS_DAYS} days — nothing to do this run.")
         return
+
+    if len(stale_props) > MAX_UNITS_PER_RUN:
+        print(f"{len(stale_props)} stale; capping this run at the {MAX_UNITS_PER_RUN} oldest "
+              f"(the rest roll over to next week).")
+        stale_props = stale_props[:MAX_UNITS_PER_RUN]
 
     print(
         f"{len(stale_props)} of {len(props)} properties are stale "
