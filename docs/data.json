@@ -130,19 +130,19 @@
     {
       "unit": 125,
       "address": "125 Woodgate Lane Paoli PA 19301",
-      "zillow": 490300,
+      "zillow": 488300,
       "redfin": 488242.47,
       "estimate_date": "2026-10-25",
-      "zillow_date": "2026-02-23",
+      "zillow_date": "2026-11-09",
       "sqft": 2133
     },
     {
       "unit": 126,
       "address": "126 Woodgate Lane Paoli PA 19301",
-      "zillow": 493800,
+      "zillow": 514500,
       "redfin": 529153.92,
       "estimate_date": "2026-10-25",
-      "zillow_date": "2026-02-23",
+      "zillow_date": "2026-11-09",
       "sqft": 2133
     },
     {
@@ -157,118 +157,118 @@
     {
       "unit": 128,
       "address": "128 Woodgate Lane Paoli PA 19301",
-      "zillow": 538100,
+      "zillow": 528000,
       "redfin": 541193.23,
       "estimate_date": "2026-10-25",
-      "zillow_date": "2026-02-23",
+      "zillow_date": "2026-11-09",
       "sqft": 2133
     },
     {
       "unit": 129,
       "address": "129 Woodgate Lane Paoli PA 19301",
-      "zillow": 497200,
+      "zillow": 496600,
       "redfin": 535729.41,
       "estimate_date": "2026-10-25",
-      "zillow_date": "2026-02-23",
+      "zillow_date": "2026-11-09",
       "sqft": 2085
     },
     {
       "unit": 130,
       "address": "130 Woodgate Lane Paoli PA 19301",
-      "zillow": 491600,
+      "zillow": 488000,
       "redfin": 477178.51,
       "estimate_date": "2026-10-25",
-      "zillow_date": "2026-02-23",
+      "zillow_date": "2026-11-09",
       "sqft": 2133
     },
     {
       "unit": 131,
       "address": "131 Woodgate Lane Paoli PA 19301",
-      "zillow": 546900,
+      "zillow": 526000,
       "redfin": 544413.59,
       "estimate_date": "2026-10-25",
-      "zillow_date": "2026-02-23",
+      "zillow_date": "2026-11-09",
       "sqft": 2133
     },
     {
       "unit": 132,
       "address": "132 Woodgate Lane Paoli PA 19301",
-      "zillow": 521400,
+      "zillow": 526300,
       "redfin": 515266.21,
       "estimate_date": "2026-10-25",
-      "zillow_date": "2026-02-23",
+      "zillow_date": "2026-11-09",
       "sqft": 2085
     },
     {
       "unit": 133,
       "address": "133 Woodgate Lane Paoli PA 19301",
-      "zillow": 511000,
+      "zillow": 508300,
       "redfin": 498407.08,
       "estimate_date": "2026-10-25",
-      "zillow_date": "2026-02-23",
+      "zillow_date": "2026-11-09",
       "sqft": 2133
     },
     {
       "unit": 134,
       "address": "134 Woodgate Lane Paoli PA 19301",
-      "zillow": 487700,
+      "zillow": 492500,
       "redfin": 500350.6,
       "estimate_date": "2026-10-25",
-      "zillow_date": "2026-02-23",
+      "zillow_date": "2026-11-09",
       "sqft": 2085
     },
     {
       "unit": 135,
       "address": "135 Woodgate Lane Paoli PA 19301",
-      "zillow": 480700,
+      "zillow": 476800,
       "redfin": 492848.06,
       "estimate_date": "2026-10-25",
-      "zillow_date": "2026-02-23",
+      "zillow_date": "2026-11-09",
       "sqft": 2133
     },
     {
       "unit": 136,
       "address": "136 Woodgate Lane Paoli PA 19301",
-      "zillow": 481600,
+      "zillow": 476200,
       "redfin": 469692.18,
       "estimate_date": "2026-10-25",
-      "zillow_date": "2026-02-23",
+      "zillow_date": "2026-11-09",
       "sqft": 2085
     },
     {
       "unit": 137,
       "address": "137 Woodgate Lane Paoli PA 19301",
-      "zillow": 535500,
+      "zillow": 535000,
       "redfin": 534437.4,
       "estimate_date": "2026-10-25",
-      "zillow_date": "2026-02-23",
+      "zillow_date": "2026-11-09",
       "sqft": 2085
     },
     {
       "unit": 138,
       "address": "138 Woodgate Lane Paoli PA 19301",
-      "zillow": 487300,
+      "zillow": 486800,
       "redfin": 495258.86,
       "estimate_date": "2026-10-25",
-      "zillow_date": "2026-02-23",
+      "zillow_date": "2026-11-09",
       "sqft": 2085
     },
     {
       "unit": 139,
       "address": "139 Woodgate Lane Paoli PA 19301",
-      "zillow": 482700,
+      "zillow": 484100,
       "redfin": 491301.22,
       "estimate_date": "2026-10-25",
-      "zillow_date": "2026-02-23",
+      "zillow_date": "2026-11-09",
       "sqft": 2133
     },
     {
       "unit": 140,
       "address": "140 Woodgate Lane Paoli PA 19301",
-      "zillow": 515700,
+      "zillow": 518300,
       "redfin": 524400.22,
       "estimate_date": "2026-10-25",
-      "zillow_date": "2026-02-23",
+      "zillow_date": "2026-11-09",
       "sqft": 2085
     },
     {
@@ -1952,6 +1952,12 @@
       "date": "2025-06-12",
       "price": 450000,
       "source": "hoa"
+    },
+    {
+      "unit": 126,
+      "date": "2025-07-21",
+      "price": 490000,
+      "source": "manual"
     },
     {
       "unit": 149,
