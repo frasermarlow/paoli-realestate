@@ -18,6 +18,8 @@ from datetime import date, timedelta
 import requests
 from bs4 import BeautifulSoup
 
+from zillow_alerts import compute_zillow_alerts
+
 # --- User-Agent pool (copied from config.py to avoid importing heavy deps) ---
 USER_AGENTS = [
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
@@ -559,6 +561,9 @@ def main():
     }
     changelog.append(entry)
     data["changelog"] = changelog
+
+    # New sales can make a unit's Zestimate out of date, so refresh the dashboard banner
+    data["zillow_alerts"] = compute_zillow_alerts(data["properties"], data.get("sales", []))
 
     # Update exported_at timestamp
     data["exported_at"] = f"{today}T00:00:00Z"
